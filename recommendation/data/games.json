@@ -1,0 +1,142 @@
+{
+  "games": {
+    "Chess": {
+      "description": "A two-player strategy game played on an 8×8 grid where pieces with unique movement rules compete to checkmate the opponent's king.",
+      "type": "strategy",
+      "player_count": [2, 2],
+      "complexity": "medium",
+      "primary_mechanics": ["turn_based", "movement", "pattern_recognition", "elimination"],
+      "secondary_mechanics": ["hidden_information"],
+      "tags": ["abstract", "classic", "two_player"],
+      "notes": "No randomness; purely deterministic. Pieces have asymmetric movement rules."
+    },
+    "Monopoly": {
+      "description": "Players buy, sell, and develop properties while collecting rent from opponents. Last player standing wins.",
+      "type": "economic",
+      "player_count": [2, 8],
+      "complexity": "low",
+      "primary_mechanics": ["economic", "resource_management", "trading", "dice_rolling", "turn_based"],
+      "secondary_mechanics": ["negotiation", "probability", "set_collection"],
+      "tags": ["classic", "family", "competitive"],
+      "notes": "Players can go bankrupt and leave the game (elimination). Trading is central but optional."
+    },
+    "Uno": {
+      "description": "A card game where players try to empty their hand by matching color or number, with action cards to disrupt opponents.",
+      "type": "card",
+      "player_count": [2, 10],
+      "complexity": "low",
+      "primary_mechanics": ["hand_management", "turn_based", "set_collection"],
+      "secondary_mechanics": ["probability", "hidden_information"],
+      "tags": ["family", "card_game", "casual"],
+      "notes": "Simple hand management. Hidden information (your cards vs others'). Color/number matching."
+    },
+    "Poker": {
+      "description": "A betting card game where players form ranked card combinations and can bluff to win the pot.",
+      "type": "card",
+      "player_count": [2, 9],
+      "complexity": "medium",
+      "primary_mechanics": ["probability", "hidden_information", "hand_management", "negotiation"],
+      "secondary_mechanics": ["economic", "set_collection"],
+      "tags": ["classic", "gambling", "bluffing"],
+      "notes": "Risk management and probability are core. Negotiation via betting. High hidden information."
+    },
+    "Checkers": {
+      "description": "A two-player abstract game where players capture all opponent pieces by jumping over them on a diagonal grid.",
+      "type": "abstract",
+      "player_count": [2, 2],
+      "complexity": "low",
+      "primary_mechanics": ["turn_based", "movement", "elimination"],
+      "secondary_mechanics": ["pattern_recognition"],
+      "tags": ["abstract", "classic", "two_player"],
+      "notes": "Mandatory captures. Kings can move backward. Simple rules, moderate depth."
+    },
+    "Risk": {
+      "description": "A global conquest game where players deploy armies, attack territories with dice, and aim for world domination.",
+      "type": "strategy",
+      "player_count": [2, 6],
+      "complexity": "medium",
+      "primary_mechanics": ["territory_control", "dice_rolling", "area_control", "turn_based"],
+      "secondary_mechanics": ["probability", "negotiation", "resource_management", "elimination"],
+      "tags": ["classic", "wargame", "competitive"],
+      "notes": "Dice rolling for battles introduces strong probability element. Negotiation via alliances."
+    },
+    "Scrabble": {
+      "description": "Players form words on a grid using lettered tiles, scoring points based on letter values and premium squares.",
+      "type": "word",
+      "player_count": [2, 4],
+      "complexity": "low",
+      "primary_mechanics": ["turn_based", "hand_management", "pattern_recognition", "set_collection"],
+      "secondary_mechanics": ["probability"],
+      "tags": ["word_game", "family", "classic"],
+      "notes": "Tile draw is random. Planning around available letters is key. Pattern recognition for word placement."
+    },
+    "Catan": {
+      "description": "Players settle a modular island by collecting resources (wood, brick, ore, grain, wool) through dice rolls, then spend them to build roads, settlements, and cities. First to 10 victory points wins.",
+      "type": "strategy",
+      "player_count": [3, 4],
+      "complexity": "medium",
+      "primary_mechanics": ["resource_management", "trading", "dice_rolling", "turn_based", "victory_points"],
+      "secondary_mechanics": ["negotiation", "probability", "territory_control", "set_collection"],
+      "tags": ["eurogame", "competitive", "modern_classic"],
+      "notes": "Trading with other players is essential. Robber mechanic adds negotiation pressure. Modular board means each game is different.",
+      "key_mechanics_explained": {
+        "resource_management": "Every turn, dice determine which hexes produce. Players with settlements/cities on those hexes collect resources.",
+        "trading": "Players can trade resources with each other or with the bank at a 4:1 ratio (or better with ports).",
+        "victory_points": "Build settlements (1VP), cities (2VP), roads (Longest Road = 2VP), armies (Largest Army = 2VP). First to 10 wins."
+      }
+    },
+    "Ticket to Ride": {
+      "description": "Players collect colored train cards and spend them to claim railway routes across a map, completing destination tickets for bonus points.",
+      "type": "strategy",
+      "player_count": [2, 5],
+      "complexity": "low",
+      "primary_mechanics": ["set_collection", "territory_control", "hand_management", "turn_based", "victory_points"],
+      "secondary_mechanics": ["probability", "area_control"],
+      "tags": ["eurogame", "family", "modern_classic"],
+      "notes": "Blocking other players' routes is important. Incomplete destination tickets score negative points. Very accessible entry-level eurogame.",
+      "key_mechanics_explained": {
+        "set_collection": "Collect matching colored train cards then spend them to claim a route of that color.",
+        "territory_control": "Once a route is claimed, no other player can use it.",
+        "victory_points": "Claimed routes score points by length. Completed destination tickets score bonus points."
+      }
+    },
+    "Dominion": {
+      "description": "Each player builds their own deck of cards during the game by buying action cards and victory cards from a shared market.",
+      "type": "card",
+      "player_count": [2, 4],
+      "complexity": "medium",
+      "primary_mechanics": ["deck_building", "hand_management", "economic", "turn_based", "victory_points"],
+      "secondary_mechanics": ["set_collection", "card_drafting"],
+      "tags": ["deck_builder", "eurogame", "competitive"],
+      "notes": "First major deck-building game. Victory cards clog your deck. Timing of buying victory points is crucial.",
+      "key_mechanics_explained": {
+        "deck_building": "You start with a small deck and buy new cards each turn from a shared market, shuffling them into your deck.",
+        "economic": "Treasure cards generate buying power. Action cards create card-draw engines.",
+        "hand_management": "Each turn you draw 5 cards and play from your hand."
+      }
+    }
+  },
+  "mechanic_labels": {
+    "resource_management": "Resource Management",
+    "trading": "Trading",
+    "territory_control": "Territory Control",
+    "dice_rolling": "Dice Rolling",
+    "turn_based": "Turn-Based Play",
+    "negotiation": "Negotiation",
+    "set_collection": "Set Collection",
+    "movement": "Piece Movement",
+    "card_drafting": "Card Drafting",
+    "probability": "Probability & Risk",
+    "asymmetric_roles": "Asymmetric Player Roles",
+    "economic": "Economic Loop",
+    "area_control": "Area Control",
+    "hand_management": "Hand Management",
+    "worker_placement": "Worker Placement",
+    "victory_points": "Victory Points",
+    "elimination": "Player Elimination",
+    "hidden_information": "Hidden Information",
+    "pattern_recognition": "Pattern Recognition",
+    "deck_building": "Deck Building"
+  }
+}
+
