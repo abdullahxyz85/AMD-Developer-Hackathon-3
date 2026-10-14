@@ -1,6 +1,8 @@
 {
   "games": {
     "Chess": {
+      "bgg_id": 171,
+      "bgg_url": "https://boardgamegeek.com/boardgame/171/chess",
       "description": "A two-player strategy game played on an 8×8 grid where pieces with unique movement rules compete to checkmate the opponent's king.",
       "type": "strategy",
       "player_count": [2, 2],
@@ -8,9 +10,17 @@
       "primary_mechanics": ["turn_based", "movement", "pattern_recognition", "elimination"],
       "secondary_mechanics": ["hidden_information"],
       "tags": ["abstract", "classic", "two_player"],
-      "notes": "No randomness; purely deterministic. Pieces have asymmetric movement rules."
+      "notes": "No randomness; purely deterministic. Pieces have asymmetric movement rules.",
+      "key_mechanics_explained": {
+        "turn_based": "White always moves first, then players alternate single moves. You must move on your turn; passing is not allowed.",
+        "movement": "Each piece type moves differently: pawns move forward one square (two on first move) and capture diagonally; knights jump in an L-shape; bishops move diagonally; rooks move in straight lines; the queen combines rook and bishop; the king moves one square in any direction.",
+        "pattern_recognition": "Recognizing threats (checks, forks, pins, and skewers) is the core skill. A piece under attack must be defended, moved, or the attacker captured.",
+        "elimination": "You win by checkmate: attacking the opponent's king so it cannot escape, block, or be defended. Stalemate (no legal moves, king not in check) is a draw, not a win."
+      }
     },
     "Monopoly": {
+      "bgg_id": 1406,
+      "bgg_url": "https://boardgamegeek.com/boardgame/1406",
       "description": "Players buy, sell, and develop properties while collecting rent from opponents. Last player standing wins.",
       "type": "economic",
       "player_count": [2, 8],
@@ -18,9 +28,18 @@
       "primary_mechanics": ["economic", "resource_management", "trading", "dice_rolling", "turn_based"],
       "secondary_mechanics": ["negotiation", "probability", "set_collection"],
       "tags": ["classic", "family", "competitive"],
-      "notes": "Players can go bankrupt and leave the game (elimination). Trading is central but optional."
+      "notes": "Players can go bankrupt and leave the game (elimination). Trading is central but optional.",
+      "key_mechanics_explained": {
+        "economic": "Cash is your lifeblood. Landing on an unowned property lets you buy it at list price; landing on someone else's property forces you to pay rent. Running out of cash forces you to mortgage or sell, or you're out.",
+        "resource_management": "Houses and hotels are built on properties of a single color group you fully own, and construction must be even across the group. Mortgaged properties collect no rent until redeemed with interest.",
+        "trading": "Players may trade properties, cash, and Get Out of Jail cards at any time on agreed terms. Owning a complete color group doubles the base rent on those properties, which drives most trades.",
+        "dice_rolling": "Roll two dice and move the sum. Doubles grant another roll, but three doubles in a row sends you to jail.",
+        "turn_based": "On your turn: roll and move, resolve the space, then may build or trade. Turn order is fixed at the start."
+      }
     },
     "Uno": {
+      "bgg_id": 2223,
+      "bgg_url": "https://boardgamegeek.com/boardgame/2223",
       "description": "A card game where players try to empty their hand by matching color or number, with action cards to disrupt opponents.",
       "type": "card",
       "player_count": [2, 10],
@@ -28,9 +47,17 @@
       "primary_mechanics": ["hand_management", "turn_based", "set_collection"],
       "secondary_mechanics": ["probability", "hidden_information"],
       "tags": ["family", "card_game", "casual"],
-      "notes": "Simple hand management. Hidden information (your cards vs others'). Color/number matching."
+      "notes": "Simple hand management. Hidden information (your cards vs others'). Color/number matching.",
+      "key_mechanics_explained": {
+        "hand_management": "On your turn, play one card matching the top discard by color, number, or symbol, or draw one card from the deck (you may play that drawn card immediately if it matches). Hold wild cards for emergencies.",
+        "turn_based": "Play proceeds clockwise; Reverse cards flip the direction, Skip cards jump the next player. When you have one card left you must yell 'Uno!' or draw two penalty cards if caught.",
+        "set_collection": "Winning means emptying your hand first; the round score is the total value of cards left in opponents' hands. Number cards count face value, action cards 20, wilds 50.",
+        "hidden_information": "Your hand is hidden; you only see opponents' discard choices and their card counts. Watching which colors opponents avoid hints at what they're stuck with."
+      }
     },
     "Poker": {
+      "bgg_id": 1115,
+      "bgg_url": "https://boardgamegeek.com/boardgame/1115/poker",
       "description": "A betting card game where players form ranked card combinations and can bluff to win the pot.",
       "type": "card",
       "player_count": [2, 9],
@@ -38,9 +65,17 @@
       "primary_mechanics": ["probability", "hidden_information", "hand_management", "negotiation"],
       "secondary_mechanics": ["economic", "set_collection"],
       "tags": ["classic", "gambling", "bluffing"],
-      "notes": "Risk management and probability are core. Negotiation via betting. High hidden information."
+      "notes": "Risk management and probability are core. Negotiation via betting. High hidden information.",
+      "key_mechanics_explained": {
+        "probability": "Hand strength is ranked (high card, pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush). Knowing the odds of completing a draw — e.g. ~2% per remaining card for a flush — guides whether to call a bet.",
+        "hidden_information": "You see only your own cards (plus community cards in Texas Hold'em). Betting, checking, and folding are all signals; reading betting patterns matters more than the cards.",
+        "hand_management": "Each betting round you choose to fold, check/call, or raise based on your hand and the pot odds. Discard-and-draw variants let you trade in cards once to improve your hand.",
+        "negotiation": "The pot is the shared prize: every bet is a price claim about your hand's strength. Bluffing (betting weak hands) and slow-playing (underbetting strong hands) manipulate opponents' decisions."
+      }
     },
     "Checkers": {
+      "bgg_id": 2083,
+      "bgg_url": "https://boardgamegeek.com/boardgame/2083",
       "description": "A two-player abstract game where players capture all opponent pieces by jumping over them on a diagonal grid.",
       "type": "abstract",
       "player_count": [2, 2],
@@ -48,9 +83,17 @@
       "primary_mechanics": ["turn_based", "movement", "elimination"],
       "secondary_mechanics": ["pattern_recognition"],
       "tags": ["abstract", "classic", "two_player"],
-      "notes": "Mandatory captures. Kings can move backward. Simple rules, moderate depth."
+      "notes": "Mandatory captures. Kings can move backward. Simple rules, moderate depth.",
+      "key_mechanics_explained": {
+        "turn_based": "Black (or the darker color) moves first; players alternate one move per turn. A move is either a diagonal step to an empty square or a capture jump.",
+        "movement": "Regular pieces move diagonally forward one square on the dark squares. Reaching the far row promotes the piece to a king (crown it), and kings may move and capture diagonally forward and backward.",
+        "elimination": "Captures are mandatory: if a jump is available you must take it, and a multiple jump continues in the same turn. You win by capturing all opponent pieces or blocking them so they have no legal move.",
+        "pattern_recognition": "Key tactics: the double jump (two pieces lined up for a chain capture), sacrificing a piece to set up a bigger exchange, and controlling the center and double-corner."
+      }
     },
     "Risk": {
+      "bgg_id": 181,
+      "bgg_url": "https://boardgamegeek.com/boardgame/181",
       "description": "A global conquest game where players deploy armies, attack territories with dice, and aim for world domination.",
       "type": "strategy",
       "player_count": [2, 6],
@@ -58,9 +101,17 @@
       "primary_mechanics": ["territory_control", "dice_rolling", "area_control", "turn_based"],
       "secondary_mechanics": ["probability", "negotiation", "resource_management", "elimination"],
       "tags": ["classic", "wargame", "competitive"],
-      "notes": "Dice rolling for battles introduces strong probability element. Negotiation via alliances."
+      "notes": "Dice rolling for battles introduces strong probability element. Negotiation via alliances.",
+      "key_mechanics_explained": {
+        "territory_control": "The map is divided into 42 territories grouped into 6 continents. At the start of your turn you receive reinforcements for territories held (every 3 territories = 1 army, minimum 3) plus continent bonuses for holding every territory in a continent.",
+        "dice_rolling": "To attack, roll up to 3 dice from a territory with 3+ armies; defender rolls up to 2. Highest die vs highest die, then second vs second: ties go to the defender. Losers remove one army per lost comparison.",
+        "area_control": "You may attack any adjacent territory and continue until you stop or run out of attackers (you must leave one army behind in each conquered territory). Holding continents is the main score driver.",
+        "turn_based": "Each turn has three phases: place reinforcements, attack (optional, any number of battles), and fortify (move armies between your connected territories once)."
+      }
     },
     "Scrabble": {
+      "bgg_id": 320,
+      "bgg_url": "https://boardgamegeek.com/boardgame/320/scrabble",
       "description": "Players form words on a grid using lettered tiles, scoring points based on letter values and premium squares.",
       "type": "word",
       "player_count": [2, 4],
@@ -68,9 +119,17 @@
       "primary_mechanics": ["turn_based", "hand_management", "pattern_recognition", "set_collection"],
       "secondary_mechanics": ["probability"],
       "tags": ["word_game", "family", "classic"],
-      "notes": "Tile draw is random. Planning around available letters is key. Pattern recognition for word placement."
+      "notes": "Tile draw is random. Planning around available letters is key. Pattern recognition for word placement.",
+      "key_mechanics_explained": {
+        "turn_based": "On your turn, play one word (or exchange tiles or pass). The first word must cover the center star; every later word must connect to at least one existing tile. Play then passes clockwise.",
+        "hand_management": "You hold 7 tiles and refill after each turn from the bag. Keeping a balanced rack of vowels/consonants and using high-value letters (Q, Z, X, J) on premium squares is the core skill.",
+        "pattern_recognition": "New words are built by reading existing board letters as anchors: hooks (adding a letter to an existing word), parallel plays (forming multiple words in one turn), and extending words (PLAY to PLAYER).",
+        "set_collection": "Score each turn by summing letter values across all words formed, applying premium squares (double/triple letter and word scores). Using all 7 tiles in one turn is a bingo worth +50 points."
+      }
     },
     "Catan": {
+      "bgg_id": 13,
+      "bgg_url": "https://boardgamegeek.com/boardgame/13/catan",
       "description": "Players settle a modular island by collecting resources (wood, brick, ore, grain, wool) through dice rolls, then spend them to build roads, settlements, and cities. First to 10 victory points wins.",
       "type": "strategy",
       "player_count": [3, 4],
@@ -82,10 +141,14 @@
       "key_mechanics_explained": {
         "resource_management": "Every turn, dice determine which hexes produce. Players with settlements/cities on those hexes collect resources.",
         "trading": "Players can trade resources with each other or with the bank at a 4:1 ratio (or better with ports).",
-        "victory_points": "Build settlements (1VP), cities (2VP), roads (Longest Road = 2VP), armies (Largest Army = 2VP). First to 10 wins."
+        "victory_points": "Build settlements (1VP), cities (2VP), roads (Longest Road = 2VP), armies (Largest Army = 2VP). First to 10 wins.",
+        "dice_rolling": "On your turn, roll two six-sided dice. Each hex with a matching number produces its resource for every adjacent settlement (1 card) or city (2 cards). A roll of 7 activates the robber: move it to a hex, steal one resource from a player on it, and that hex produces nothing until the robber moves. Hexes numbered 6 or 8 (red) are rolled most often.",
+        "turn_based": "On your turn: roll for production, then optionally trade and build (roads, settlements, cities, or development cards). Only the current player may build, but anyone may propose trades on their turn. If you roll a 7, players with more than 7 resource cards discard half (rounded down) before the robber moves."
       }
     },
     "Ticket to Ride": {
+      "bgg_id": 9209,
+      "bgg_url": "https://boardgamegeek.com/boardgame/9209",
       "description": "Players collect colored train cards and spend them to claim railway routes across a map, completing destination tickets for bonus points.",
       "type": "strategy",
       "player_count": [2, 5],
@@ -97,10 +160,14 @@
       "key_mechanics_explained": {
         "set_collection": "Collect matching colored train cards then spend them to claim a route of that color.",
         "territory_control": "Once a route is claimed, no other player can use it.",
-        "victory_points": "Claimed routes score points by length. Completed destination tickets score bonus points."
+        "victory_points": "Claimed routes score points by length. Completed destination tickets score bonus points.",
+        "hand_management": "On your turn do exactly one action: draw 2 train cards (face-up or blind), claim a route by spending train cards of the matching color and count, or draw destination tickets (keep at least 1 of 3). Face-up locomotive (wild) cards count as any color; taking a face-up locomotive is your whole draw.",
+        "turn_based": "Turns pass clockwise; you always perform exactly one of the three actions. When any player has 2 or fewer trains left at the end of their turn, each player (including them) takes one final turn, then scoring begins."
       }
     },
     "Dominion": {
+      "bgg_id": 36218,
+      "bgg_url": "https://boardgamegeek.com/boardgame/36218",
       "description": "Each player builds their own deck of cards during the game by buying action cards and victory cards from a shared market.",
       "type": "card",
       "player_count": [2, 4],
@@ -112,7 +179,9 @@
       "key_mechanics_explained": {
         "deck_building": "You start with a small deck and buy new cards each turn from a shared market, shuffling them into your deck.",
         "economic": "Treasure cards generate buying power. Action cards create card-draw engines.",
-        "hand_management": "Each turn you draw 5 cards and play from your hand."
+        "hand_management": "Each turn you draw 5 cards and play from your hand.",
+        "turn_based": "Each turn has three phases, in order: play any number of Action cards (one copy each), buy one card from the shared market with Treasure played from your hand, then discard your hand and draw 5 fresh cards. Shuffle your discards when your draw pile runs out.",
+        "victory_points": "Province cards are the main victory points (6VP each; Duchy 3, Estate 1). Victory cards are dead cards in hand, so the winning move is often switching from buying engine cards to buying Provinces once the game will end soon. The game ends when Provinces run out or any three supply piles are empty."
       }
     }
   },
@@ -139,4 +208,3 @@
     "deck_building": "Deck Building"
   }
 }
-
