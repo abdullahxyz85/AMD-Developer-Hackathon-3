@@ -1,0 +1,4 @@
+# generated artifacts (rebuildable via scripts/load_games.py + scripts/ingest.py)
+knowledge/fact_cards/
+knowledge/index/
+__pycache__/

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "description": "Retrieval eval set for the board-game tutor RAG. Classes: exact (game+rule named), mechanic (per-mechanic rule cards), ambiguous (several sections could answer; canonical expected), unanswerable (game in KB, topic absent), unknown_game (game not in KB).",
+  "questions": [
+    { "id": "exact-01", "class": "exact", "game": "Catan", "query": "how do I win the game", "expected_section": "objective" },
+    { "id": "exact-02", "class": "exact", "game": "Catan", "query": "what happens when someone rolls a 7", "expected_section": "exceptions" },
+    { "id": "exact-03", "class": "exact", "game": "Catan", "query": "how do we set up the board at the start", "expected_section": "setup" },
+    { "id": "exact-04", "class": "exact", "game": "Chess", "query": "when can I castle the king and rook", "expected_section": "exceptions" },
+    { "id": "exact-05", "class": "exact", "game": "Chess", "query": "how do knights and bishops move", "expected_section": "core_mechanics" },
+    { "id": "exact-06", "class": "exact", "game": "Chess", "query": "what happens when a pawn reaches the last rank", "expected_section": "exceptions" },
+    { "id": "exact-07", "class": "exact", "game": "Monopoly", "query": "what happens when I land on someone else's property", "expected_section": "turn_structure" },
+    { "id": "exact-08", "class": "exact", "game": "Monopoly", "query": "can I build a hotel right away", "expected_section": "core_mechanics" },
+    { "id": "exact-09", "class": "exact", "game": "Monopoly", "query": "what happens if I cannot pay my debts", "expected_section": "exceptions" },
+    { "id": "exact-10", "class": "exact", "game": "Ticket to Ride", "query": "how does the game end", "expected_section": "exceptions" },
+    { "id": "exact-11", "class": "exact", "game": "Ticket to Ride", "query": "how do I claim a route", "expected_section": "turn_structure" },
+    { "id": "exact-12", "class": "exact", "game": "Catan", "query": "what does the robber piece do", "expected_section": "exceptions" },
+
+    { "id": "mech-01", "class": "mechanic", "game": "Catan", "query": "can I trade with other players", "expected_mechanic": "trading" },
+    { "id": "mech-02", "class": "mechanic", "game": "Catan", "query": "how does resource production work", "expected_mechanic": "dice_rolling" },
+    { "id": "mech-03", "class": "mechanic", "game": "Monopoly", "query": "how does rent generate money", "expected_mechanic": "economic" },
+    { "id": "mech-04", "class": "mechanic", "game": "Ticket to Ride", "query": "how do destination tickets score", "expected_mechanic": "victory_points" },
+    { "id": "mech-05", "class": "mechanic", "game": "Uno", "query": "how do I win uno", "expected_mechanic": "set_collection" },
+    { "id": "mech-06", "class": "mechanic", "game": "Poker", "query": "which poker hands beat which", "expected_mechanic": "probability" },
+    { "id": "mech-07", "class": "mechanic", "game": "Risk", "query": "how do battles with dice work", "expected_mechanic": "dice_rolling" },
+    { "id": "mech-08", "class": "mechanic", "game": "Dominion", "query": "how do I get new cards into my deck", "expected_mechanic": "deck_building" },
+
+    { "id": "amb-01", "class": "ambiguous", "game": "Catan", "query": "how do resources work", "expected_section": "mechanic", "expected_mechanic": "resource_management" },
+    { "id": "amb-02", "class": "ambiguous", "game": "Chess", "query": "how does check work", "expected_section": "core_mechanics" },
+    { "id": "amb-03", "class": "ambiguous", "game": "Ticket to Ride", "query": "how do locomotives and wild cards work", "expected_section": "mechanic", "expected_mechanic": "hand_management" },
+    { "id": "amb-04", "class": "ambiguous", "game": "Monopoly", "query": "jail rules", "expected_section": "exceptions" },
+    { "id": "amb-05", "class": "ambiguous", "game": "Risk", "query": "how do I get more armies", "expected_section": "mechanic", "expected_mechanic": "territory_control" },
+
+    { "id": "una-01", "class": "unanswerable", "game": "Catan", "query": "how many ship tiles are in the Seafarers expansion", "unanswerable": true },
+    { "id": "una-02", "class": "unanswerable", "game": "Chess", "query": "what is the touch-move rule in FIDE tournament play", "unanswerable": true },
+    { "id": "una-03", "class": "unanswerable", "game": "Monopoly", "query": "how much does Boardwalk cost to buy", "unanswerable": true },
+    { "id": "una-04", "class": "unanswerable", "game": "Ticket to Ride", "query": "what is the fastest recorded game of ticket to ride", "unanswerable": true },
+    { "id": "una-05", "class": "unanswerable", "game": "Monopoly", "query": "who invented the game and in what year", "unanswerable": true },
+
+    { "id": "unk-01", "class": "unknown_game", "game": "Splendor", "query": "how many gems can I hold in splendor", "unanswerable": true },
+    { "id": "unk-02", "class": "unknown_game", "game": "Azul", "query": "how do you score azul", "unanswerable": true },
+    { "id": "unk-03", "class": "unknown_game", "game": "Codenames", "query": "what does the spymaster do", "unanswerable": true }
+  ]
+}
