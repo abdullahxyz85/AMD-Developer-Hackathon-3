@@ -1,0 +1,42 @@
+{
+  "game": "Ticket to Ride",
+  "bgg_id": 9209,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Ticket to Ride is a railway-building game for 2–5 players. The player with the highest total score when the game ends wins. Points come from claimed routes (1–15 points by route length), completed destination tickets (bonus points for connecting the two named cities by a continuous path of your routes), a 10-point bonus for the single longest continuous path, and minus points for every incomplete destination ticket.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "components",
+      "text": "The board shows a map of North America divided into cities connected by routes of 1–6 spaces in specific colors (some routes are grey, accepting any single color). There are colored plastic trains — 45 per player — plus 110 train cards: 12 of each of 8 colors and 14 rainbow locomotives that act as wild cards. Destination ticket cards each name two cities and a point value, and there is a scoring track around the board edge.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "setup",
+      "text": "Each player takes 45 trains of one color, a matching marker for the scoring track, and 3–5 stations (depending on edition; the base game includes stations in some printings — for the classic rules, play without them). Deal each player 4 destination tickets; they keep at least 2 (may keep 3 or all 4) and discard the rest face down. Deal 4 train cards to each player, then lay 5 train cards face up beside the deck. The most experienced traveller goes first.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "On your turn you perform exactly one of three actions: (1) Draw train cards — take any 2 (blind from the deck or face up from the display); taking a face-up locomotive counts as your entire draw, and face-up locomotives are not legal to take as a second card. (2) Claim a route — play train cards of the route's color/length from your hand and place your trains on it; grey routes accept any one color, and locomotives substitute for any card. (3) Draw destination tickets — reveal 3 tickets and keep at least 1. Your turn always ends after your one action; play continues clockwise.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Set collection: train cards are the currency for routes — a 4-space red route costs 4 red cards (or reds plus locomotives). Territory control: each claimed route belongs to you alone; no other player may use or cross it, so claiming a route can block an opponent's planned connection. Destination tickets: at game end each ticket scores its value if the two cities are connected by an unbroken path of your routes, or subtracts the same value if not — so tickets are both your main scoring plan and your main risk. Scoring by length: routes of length 1–6 score 1, 2, 4, 7, 10, and 15 points respectively, so long routes are very efficient per train.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "exceptions",
+      "text": "End of game: when a player has 2 or fewer trains left at the end of their turn, every player — including that player — takes one more turn, then final scoring begins. Face-up display: if at any time 3 or more of the 5 face-up train cards are locomotives, all 5 cards are discarded and 5 new cards revealed. Double routes: between some large city pairs there are two parallel routes; in games with 2 or 3 players, each player may claim only one of the two (in 4–5 player games both may be used, even by the same player). Stations (in editions that include them): a station may be built on an unoccupied city to count as one route owned by another player, helping complete tickets; each station costs 1 train card and scores 4 points when used, −4 if unused. Incomplete tickets always subtract their full value.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    },
+    {
+      "section": "examples",
+      "text": "Claiming example: you want the 4-space blue route between Denver and Pittsburgh. It is colored blue, so you must show 4 blue cards — or 3 blue plus 1 locomotive, or 2 blue plus 2 locomotives — and place 4 of your trains on it, scoring 7 points immediately. Ticket example: you hold a ticket from Boston to Miami worth 12 points. You build a continuous path through your own claimed routes connecting the two cities; at game end the ticket adds 12 points. If your path is broken (or never completed), it subtracts 12 instead. Blocking example: an opponent is visibly hoarding orange cards; claiming a short orange route they need forces them to reroute or waste their collected cards.",
+      "source": { "title": "Ticket to Ride — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/9209" }
+    }
+  ]
+}

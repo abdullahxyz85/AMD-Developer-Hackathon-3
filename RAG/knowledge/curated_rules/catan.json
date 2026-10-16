@@ -1,0 +1,42 @@
+{
+  "game": "Catan",
+  "bgg_id": 13,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Catan is a game for 3–4 players. The winner is the first player to reach 10 victory points on their turn. Victory points come from settlements (1 VP each), cities (2 VP each), the Longest Road bonus (2 VP for a continuous road of 5+ segments), the Largest Army bonus (2 VP for 3+ knight cards), and certain development cards worth 1 VP each.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "components",
+      "text": "The island of Catan is built from 19 terrain hexes: 4 fields (grain), 4 pasture (wool), 4 forest (wood), 3 hills (brick), 3 mountains (ore), and 1 desert which produces nothing. Eighteen number tokens are placed on hexes; 6 and 8 are the most likely rolls. Each player has roads, settlements, and cities in their color. There are 95 resource cards in five types (brick, wood, ore, grain, wool), 25 development cards, 2 dice, and harbor/port tiles granting better bank trade rates.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "setup",
+      "text": "Assemble the island from the 19 hexes inside the sea frame (the rulebook includes a fixed beginner layout; experienced players shuffle the hexes randomly) and place a number token on each hex except the desert. Each player takes 15 roads, 5 settlements, and 4 cities. In turn order, each player places one settlement with an adjacent road; the order then reverses for a second settlement and road. When placing your second settlement, you immediately collect one resource card from each hex adjacent to it. Harbors sit on the coastal edges of the frame.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "On your turn: (1) roll both dice for production — every hex whose number matches produces resources for players with settlements (1 card per adjacent settlement) or cities (2 cards) on it; (2) trade — you may trade resources with other players (they cannot trade among themselves on your turn) or with the bank at 4:1, or 3:1/2:1 at matching harbors; (3) build — spend resource combinations to place roads (wood + brick), settlements (wood + brick + wool + grain), cities (3 ore + 2 grain), or buy a development card (wool + grain + ore). You may trade and build in any order after the roll. Your turn ends and the dice pass clockwise.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Production: dice rolls make specific resources appear, so the numbers around your settlements decide your income — hexes numbered 6 and 8 produce most often. Trading: player negotiation is essential because no player's positions produce all five resources; bank trade rates improve with ports. Building: roads extend toward new building spots; settlements must be placed on open intersections connected by your own continuous road; a settlement can be upgraded to a city (returning the settlement to your supply) to double its production and value. Development cards: bought face down and kept hidden; they include knights (which move the robber and count toward Largest Army), progress cards (road building, year of plenty, monopoly), and victory point cards.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Rolling a 7 (the robber): no hex produces. Any player with more than 7 resource cards must discard half, rounded down. The roller moves the robber to any hex — it blocks that hex from producing and lets the roller steal 1 random resource card from a player with a settlement or city on it. Distance rule: settlements and cities must be at least 2 intersections apart, so no two buildings sit on adjacent intersections. Roads may not pass through other players' buildings. Development cards bought on your turn cannot be played until your next turn (except victory point cards, which may be kept hidden until they win you the game). A settlement placed by upgrading: cities return the settlement piece to your stock, not to the board. You may build or trade only on your own turn.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    },
+    {
+      "section": "examples",
+      "text": "First-turn example: you placed your second settlement on intersections touching forest-6, hills-8, and pasture-3, so you immediately take 1 wood, 1 brick, and 1 wool. Later, a 6 is rolled: every settlement or city adjacent to the forest-6 hex takes wood — you get 1 wood for a settlement there, 2 if you have upgraded it to a city. Trading example: you have 3 wool but need 1 brick to build a road. A player with surplus brick may trade 1-for-1 with you on their or your turn; otherwise you can give the bank 4 wool for 1 brick, or 3 wool if you built on a 3:1 harbor.",
+      "source": { "title": "Catan — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/13/catan" }
+    }
+  ]
+}

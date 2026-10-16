@@ -1,0 +1,42 @@
+{
+  "game": "Monopoly",
+  "bgg_id": 1406,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Monopoly is a game for 2–8 players. The winner is the last player remaining after all others have gone bankrupt. You bankrupt opponents by making them pay rent and other costs until they cannot pay their debts even after selling and mortgaging everything they own.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "components",
+      "text": "The board is a loop of 40 spaces: 22 color-grouped streets, 4 railroads, 2 utilities, 3 Chance and 3 Community Chest spaces, taxes (Income Tax and Luxury Tax), Jail/Just Visiting, Free Parking, and Go. Each property has a matching title deed card showing its price and rent schedule. There are houses and hotels to build on properties, play money, two dice, and Chance/Community Chest card decks.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "setup",
+      "text": "Each player chooses a token and places it on Go. Banker and bank are set up with the money (each player starts with the published starting cash, e.g. $1,500 in modern editions) and title deeds, houses, and hotels held apart by the bank. Shuffle the Chance and Community Chest decks face down. Players agree on turn order; play proceeds clockwise.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "On your turn: roll both dice and move your token clockwise the sum. Resolve the space you land on: if it is an unowned property you may buy it at the printed price; if you decline, the Banker auctions it to the highest bidder (official rules — the property is never left unowned); if it is owned you pay the rent shown on the deed (rent depends on buildings and whether the owner holds a full color set). Rolling doubles moves you again after resolving, but three consecutive doubles sends you straight to Jail. After resolving you may build houses/hotels on your full color groups and trade with any player. Your turn then passes.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Property and rent: owning properties turns opponents' movement into your income. Color sets: owning every property of a color group doubles the base rent on each of them, and only then may you build. Building: houses must be built evenly across a group (you cannot add a second house to one property until every property in the group has one); hotels replace 4 houses. Rent on developed lots rises steeply — this is how most players are bankrupted. Mortgaging: you can raise cash by mortgaging property to the bank for half its price; mortgaged property collects no rent until you repay the mortgage plus 10% interest. Railroads collect more rent the more of the four you own; utilities collect a rent multiplied by the dice roll.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Jail: you go to Jail by rolling three consecutive doubles, landing on Go to Jail, or drawing the relevant card. While in Jail you may not move until you pay $50, use a Get Out of Jail Free card, or roll doubles — you get up to three attempts across your turns, and must pay $50 on the third failed attempt before moving. You may still collect rent, build, and trade while in Jail. Selling: houses and hotels are sold back to the bank at half price, and you must sell buildings before you can mortgage a property in that group or sell a property with buildings on it to another player. Income Tax: pay the flat amount printed on the space ($200 in modern editions). Free Parking has no effect in official rules — no money is collected there.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    },
+    {
+      "section": "examples",
+      "text": "Rent example: you land on Illinois Avenue owned by a player who owns the full red set but has no buildings. Illinois rents for $24; because the owner holds the complete red group, the rent doubles to $48. Building example: the orange group (St. James Place, Tennessee Avenue, New York Avenue) is famous because players leaving Jail land there often — once you own all three, building three houses on each turns almost any opponent landing into a $700–$1,100 payment. Bankruptcy example: if you owe $900 and hold only $100 in cash, you must mortgage and sell; if the total still cannot cover the debt, you turn over all assets to your creditor and leave the game.",
+      "source": { "title": "Monopoly — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1406" }
+    }
+  ]
+}
