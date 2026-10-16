@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateLesson, type LessonBundle } from "../api/client";
 import type { UserLevel } from "../api/types";
 import { useCatalog } from "../catalog";
@@ -7,10 +7,16 @@ import { GOALS, KnownGamesPicker, LevelGoal, TargetPicker } from "../components/
 import { VisualPlayer } from "../components/VisualPlayer";
 import { Notice, Spinner } from "../components/ui";
 
-export function LearnView() {
+export function LearnView({ initialTarget }: { initialTarget?: string }) {
   const { knownGames, targetGames } = useCatalog();
   const [known, setKnown] = useState<string[]>(["Monopoly", "Chess"]);
-  const [target, setTarget] = useState("Catan");
+  const [target, setTarget] = useState(initialTarget || "Catan");
+
+  useEffect(() => {
+    if (initialTarget) {
+      setTarget(initialTarget);
+    }
+  }, [initialTarget]);
   const [level, setLevel] = useState<UserLevel>("beginner");
   const [goal, setGoal] = useState(GOALS[0]);
   const [busy, setBusy] = useState(false);

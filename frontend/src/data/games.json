@@ -5,29 +5,69 @@
       "bgg_url": "https://boardgamegeek.com/boardgame/171/chess",
       "description": "A two-player strategy game played on an 8×8 grid where pieces with unique movement rules compete to checkmate the opponent's king.",
       "type": "strategy",
-      "player_count": [2, 2],
+      "player_count": [
+        2,
+        2
+      ],
       "complexity": "medium",
-      "primary_mechanics": ["turn_based", "movement", "pattern_recognition", "elimination"],
-      "secondary_mechanics": ["hidden_information"],
-      "tags": ["abstract", "classic", "two_player"],
+      "primary_mechanics": [
+        "turn_based",
+        "movement",
+        "pattern_recognition",
+        "elimination"
+      ],
+      "secondary_mechanics": [
+        "hidden_information"
+      ],
+      "tags": [
+        "abstract",
+        "classic",
+        "two_player"
+      ],
       "notes": "No randomness; purely deterministic. Pieces have asymmetric movement rules.",
       "key_mechanics_explained": {
         "turn_based": "White always moves first, then players alternate single moves. You must move on your turn; passing is not allowed.",
         "movement": "Each piece type moves differently: pawns move forward one square (two on first move) and capture diagonally; knights jump in an L-shape; bishops move diagonally; rooks move in straight lines; the queen combines rook and bishop; the king moves one square in any direction.",
         "pattern_recognition": "Recognizing threats (checks, forks, pins, and skewers) is the core skill. A piece under attack must be defended, moved, or the attacker captured.",
         "elimination": "You win by checkmate: attacking the opponent's king so it cannot escape, block, or be defended. Stalemate (no legal moves, king not in check) is a draw, not a win."
-      }
+      },
+      "bayes_avg_rating": 7.1,
+      "num_ratings": 42000,
+      "year_published": 1475,
+      "mfg_playtime": 60,
+      "game_weight": 3.7,
+      "has_video": false,
+      "winning_strategies": "Control the four center squares (d4, d5, e4, e5), develop minor pieces (knights and bishops) before moving major pieces, and castle early for king safety.",
+      "how_i_won": "Pushed an early knight outpost into d5, capitalized on an exposed f-file pin, and executed a rook sacrifice leading to forced checkmate.",
+      "winning_tips": "Always look at your opponent's checks, captures, and threats before finalizing your candidate move."
     },
     "Monopoly": {
       "bgg_id": 1406,
       "bgg_url": "https://boardgamegeek.com/boardgame/1406",
       "description": "Players buy, sell, and develop properties while collecting rent from opponents. Last player standing wins.",
       "type": "economic",
-      "player_count": [2, 8],
+      "player_count": [
+        2,
+        8
+      ],
       "complexity": "low",
-      "primary_mechanics": ["economic", "resource_management", "trading", "dice_rolling", "turn_based"],
-      "secondary_mechanics": ["negotiation", "probability", "set_collection"],
-      "tags": ["classic", "family", "competitive"],
+      "primary_mechanics": [
+        "economic",
+        "resource_management",
+        "trading",
+        "dice_rolling",
+        "turn_based"
+      ],
+      "secondary_mechanics": [
+        "negotiation",
+        "probability",
+        "set_collection"
+      ],
+      "tags": [
+        "classic",
+        "family",
+        "competitive"
+      ],
       "notes": "Players can go bankrupt and leave the game (elimination). Trading is central but optional.",
       "key_mechanics_explained": {
         "economic": "Cash is your lifeblood. Landing on an unowned property lets you buy it at list price; landing on someone else's property forces you to pay rent. Running out of cash forces you to mortgage or sell, or you're out.",
@@ -35,18 +75,41 @@
         "trading": "Players may trade properties, cash, and Get Out of Jail cards at any time on agreed terms. Owning a complete color group doubles the base rent on those properties, which drives most trades.",
         "dice_rolling": "Roll two dice and move the sum. Doubles grant another roll, but three doubles in a row sends you to jail.",
         "turn_based": "On your turn: roll and move, resolve the space, then may build or trade. Turn order is fixed at the start."
-      }
+      },
+      "bayes_avg_rating": 4.4,
+      "num_ratings": 35000,
+      "year_published": 1935,
+      "mfg_playtime": 90,
+      "game_weight": 1.6,
+      "has_video": false,
+      "winning_strategies": "The Orange and Red color groups see the highest statistical foot traffic from Jail exits. Build three houses as fast as possible to maximize rent returns.",
+      "how_i_won": "Secured the Orange set, immediately traded a railroad to get full ownership, and built 3 houses per property before anyone else completed a color set.",
+      "winning_tips": "Three houses per property is the sweet spot where rent jumps drastically compared to the cash investment."
     },
     "Uno": {
       "bgg_id": 2223,
       "bgg_url": "https://boardgamegeek.com/boardgame/2223",
       "description": "A card game where players try to empty their hand by matching color or number, with action cards to disrupt opponents.",
       "type": "card",
-      "player_count": [2, 10],
+      "player_count": [
+        2,
+        10
+      ],
       "complexity": "low",
-      "primary_mechanics": ["hand_management", "turn_based", "set_collection"],
-      "secondary_mechanics": ["probability", "hidden_information"],
-      "tags": ["family", "card_game", "casual"],
+      "primary_mechanics": [
+        "hand_management",
+        "turn_based",
+        "set_collection"
+      ],
+      "secondary_mechanics": [
+        "probability",
+        "hidden_information"
+      ],
+      "tags": [
+        "family",
+        "card_game",
+        "casual"
+      ],
       "notes": "Simple hand management. Hidden information (your cards vs others'). Color/number matching.",
       "key_mechanics_explained": {
         "hand_management": "On your turn, play one card matching the top discard by color, number, or symbol, or draw one card from the deck (you may play that drawn card immediately if it matches). Hold wild cards for emergencies.",
@@ -60,11 +123,26 @@
       "bgg_url": "https://boardgamegeek.com/boardgame/1115/poker",
       "description": "A betting card game where players form ranked card combinations and can bluff to win the pot.",
       "type": "card",
-      "player_count": [2, 9],
+      "player_count": [
+        2,
+        9
+      ],
       "complexity": "medium",
-      "primary_mechanics": ["probability", "hidden_information", "hand_management", "negotiation"],
-      "secondary_mechanics": ["economic", "set_collection"],
-      "tags": ["classic", "gambling", "bluffing"],
+      "primary_mechanics": [
+        "probability",
+        "hidden_information",
+        "hand_management",
+        "negotiation"
+      ],
+      "secondary_mechanics": [
+        "economic",
+        "set_collection"
+      ],
+      "tags": [
+        "classic",
+        "gambling",
+        "bluffing"
+      ],
       "notes": "Risk management and probability are core. Negotiation via betting. High hidden information.",
       "key_mechanics_explained": {
         "probability": "Hand strength is ranked (high card, pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush). Knowing the odds of completing a draw — e.g. ~2% per remaining card for a flush — guides whether to call a bet.",
@@ -78,11 +156,24 @@
       "bgg_url": "https://boardgamegeek.com/boardgame/2083",
       "description": "A two-player abstract game where players capture all opponent pieces by jumping over them on a diagonal grid.",
       "type": "abstract",
-      "player_count": [2, 2],
+      "player_count": [
+        2,
+        2
+      ],
       "complexity": "low",
-      "primary_mechanics": ["turn_based", "movement", "elimination"],
-      "secondary_mechanics": ["pattern_recognition"],
-      "tags": ["abstract", "classic", "two_player"],
+      "primary_mechanics": [
+        "turn_based",
+        "movement",
+        "elimination"
+      ],
+      "secondary_mechanics": [
+        "pattern_recognition"
+      ],
+      "tags": [
+        "abstract",
+        "classic",
+        "two_player"
+      ],
       "notes": "Mandatory captures. Kings can move backward. Simple rules, moderate depth.",
       "key_mechanics_explained": {
         "turn_based": "Black (or the darker color) moves first; players alternate one move per turn. A move is either a diagonal step to an empty square or a capture jump.",
@@ -96,29 +187,69 @@
       "bgg_url": "https://boardgamegeek.com/boardgame/181",
       "description": "A global conquest game where players deploy armies, attack territories with dice, and aim for world domination.",
       "type": "strategy",
-      "player_count": [2, 6],
+      "player_count": [
+        2,
+        6
+      ],
       "complexity": "medium",
-      "primary_mechanics": ["territory_control", "dice_rolling", "area_control", "turn_based"],
-      "secondary_mechanics": ["probability", "negotiation", "resource_management", "elimination"],
-      "tags": ["classic", "wargame", "competitive"],
+      "primary_mechanics": [
+        "territory_control",
+        "dice_rolling",
+        "area_control",
+        "turn_based"
+      ],
+      "secondary_mechanics": [
+        "probability",
+        "negotiation",
+        "resource_management",
+        "elimination"
+      ],
+      "tags": [
+        "classic",
+        "wargame",
+        "competitive"
+      ],
       "notes": "Dice rolling for battles introduces strong probability element. Negotiation via alliances.",
       "key_mechanics_explained": {
         "territory_control": "The map is divided into 42 territories grouped into 6 continents. At the start of your turn you receive reinforcements for territories held (every 3 territories = 1 army, minimum 3) plus continent bonuses for holding every territory in a continent.",
         "dice_rolling": "To attack, roll up to 3 dice from a territory with 3+ armies; defender rolls up to 2. Highest die vs highest die, then second vs second: ties go to the defender. Losers remove one army per lost comparison.",
         "area_control": "You may attack any adjacent territory and continue until you stop or run out of attackers (you must leave one army behind in each conquered territory). Holding continents is the main score driver.",
         "turn_based": "Each turn has three phases: place reinforcements, attack (optional, any number of battles), and fortify (move armies between your connected territories once)."
-      }
+      },
+      "bayes_avg_rating": 5.6,
+      "num_ratings": 31000,
+      "year_published": 1959,
+      "mfg_playtime": 120,
+      "game_weight": 2.1,
+      "has_video": false,
+      "winning_strategies": "Australia and South America offer easily defensible continent bonuses early. Never overextend your front lines.",
+      "how_i_won": "Turtled in Australia to build a massive surplus army while rivals depleted each other over Europe and North America, then swept across Asia in one turn.",
+      "winning_tips": "Eliminating a player with 4+ Risk cards gives you their cards, often allowing an immediate card turn-in during your same turn."
     },
     "Scrabble": {
       "bgg_id": 320,
       "bgg_url": "https://boardgamegeek.com/boardgame/320/scrabble",
       "description": "Players form words on a grid using lettered tiles, scoring points based on letter values and premium squares.",
       "type": "word",
-      "player_count": [2, 4],
+      "player_count": [
+        2,
+        4
+      ],
       "complexity": "low",
-      "primary_mechanics": ["turn_based", "hand_management", "pattern_recognition", "set_collection"],
-      "secondary_mechanics": ["probability"],
-      "tags": ["word_game", "family", "classic"],
+      "primary_mechanics": [
+        "turn_based",
+        "hand_management",
+        "pattern_recognition",
+        "set_collection"
+      ],
+      "secondary_mechanics": [
+        "probability"
+      ],
+      "tags": [
+        "word_game",
+        "family",
+        "classic"
+      ],
       "notes": "Tile draw is random. Planning around available letters is key. Pattern recognition for word placement.",
       "key_mechanics_explained": {
         "turn_based": "On your turn, play one word (or exchange tiles or pass). The first word must cover the center star; every later word must connect to at least one existing tile. Play then passes clockwise.",
@@ -132,11 +263,29 @@
       "bgg_url": "https://boardgamegeek.com/boardgame/13/catan",
       "description": "Players settle a modular island by collecting resources (wood, brick, ore, grain, wool) through dice rolls, then spend them to build roads, settlements, and cities. First to 10 victory points wins.",
       "type": "strategy",
-      "player_count": [3, 4],
+      "player_count": [
+        3,
+        4
+      ],
       "complexity": "medium",
-      "primary_mechanics": ["resource_management", "trading", "dice_rolling", "turn_based", "victory_points"],
-      "secondary_mechanics": ["negotiation", "probability", "territory_control", "set_collection"],
-      "tags": ["eurogame", "competitive", "modern_classic"],
+      "primary_mechanics": [
+        "resource_management",
+        "trading",
+        "dice_rolling",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "negotiation",
+        "probability",
+        "territory_control",
+        "set_collection"
+      ],
+      "tags": [
+        "eurogame",
+        "competitive",
+        "modern_classic"
+      ],
       "notes": "Trading with other players is essential. Robber mechanic adds negotiation pressure. Modular board means each game is different.",
       "key_mechanics_explained": {
         "resource_management": "Every turn, dice determine which hexes produce. Players with settlements/cities on those hexes collect resources.",
@@ -144,18 +293,46 @@
         "victory_points": "Build settlements (1VP), cities (2VP), roads (Longest Road = 2VP), armies (Largest Army = 2VP). First to 10 wins.",
         "dice_rolling": "On your turn, roll two six-sided dice. Each hex with a matching number produces its resource for every adjacent settlement (1 card) or city (2 cards). A roll of 7 activates the robber: move it to a hex, steal one resource from a player on it, and that hex produces nothing until the robber moves. Hexes numbered 6 or 8 (red) are rolled most often.",
         "turn_based": "On your turn: roll for production, then optionally trade and build (roads, settlements, cities, or development cards). Only the current player may build, but anyone may propose trades on their turn. If you roll a 7, players with more than 7 resource cards discard half (rounded down) before the robber moves."
-      }
+      },
+      "bayes_avg_rating": 7.14,
+      "num_ratings": 124500,
+      "year_published": 1995,
+      "mfg_playtime": 75,
+      "game_weight": 2.3,
+      "has_video": true,
+      "video_url": "",
+      "components": "19 terrain hexes; 6 sea frame pieces; 9 harbor pieces; 18 number tokens; 95 resource cards; 25 development cards; 4 building cost cards; 2 special cards (Longest Road, Largest Army); 16 cities; 20 settlements; 60 roads; 2 dice; 1 robber pawn",
+      "how_to_play": "Roll dice for resource production. Hexes with matching numbers produce for adjacent settlements and cities. Trade resources with other players or maritime ports. Build roads, settlements, and cities to earn victory points. First to 10 victory points wins.",
+      "winning_strategies": "Prioritize high-probability hexes (6 and 8). Secure at least one steady brick and wood source for early expansion. Never accept uneven trades late game that hand an opponent their 10th VP.",
+      "how_i_won": "Rushed the 8-ore and 6-grain intersection early, upgraded to two cities before turn 6, and took Largest Army with continuous knight activations to starve competitors of wheat.",
+      "winning_tips": "Diversify resource access during initial placement. The 5-6-9 intersection is often stronger than an isolated 8."
     },
     "Ticket to Ride": {
       "bgg_id": 9209,
       "bgg_url": "https://boardgamegeek.com/boardgame/9209",
       "description": "Players collect colored train cards and spend them to claim railway routes across a map, completing destination tickets for bonus points.",
       "type": "strategy",
-      "player_count": [2, 5],
+      "player_count": [
+        2,
+        5
+      ],
       "complexity": "low",
-      "primary_mechanics": ["set_collection", "territory_control", "hand_management", "turn_based", "victory_points"],
-      "secondary_mechanics": ["probability", "area_control"],
-      "tags": ["eurogame", "family", "modern_classic"],
+      "primary_mechanics": [
+        "set_collection",
+        "territory_control",
+        "hand_management",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "probability",
+        "area_control"
+      ],
+      "tags": [
+        "eurogame",
+        "family",
+        "modern_classic"
+      ],
       "notes": "Blocking other players' routes is important. Incomplete destination tickets score negative points. Very accessible entry-level eurogame.",
       "key_mechanics_explained": {
         "set_collection": "Collect matching colored train cards then spend them to claim a route of that color.",
@@ -163,18 +340,46 @@
         "victory_points": "Claimed routes score points by length. Completed destination tickets score bonus points.",
         "hand_management": "On your turn do exactly one action: draw 2 train cards (face-up or blind), claim a route by spending train cards of the matching color and count, or draw destination tickets (keep at least 1 of 3). Face-up locomotive (wild) cards count as any color; taking a face-up locomotive is your whole draw.",
         "turn_based": "Turns pass clockwise; you always perform exactly one of the three actions. When any player has 2 or fewer trains left at the end of their turn, each player (including them) takes one final turn, then scoring begins."
-      }
+      },
+      "bayes_avg_rating": 7.41,
+      "num_ratings": 95000,
+      "year_published": 2004,
+      "mfg_playtime": 45,
+      "game_weight": 1.8,
+      "has_video": true,
+      "video_url": "",
+      "components": "1 board map of North American train routes; 240 colored train cars; 110 train car cards; 30 destination ticket cards; 1 summary card; 5 wooden scoring markers",
+      "how_to_play": "Each turn take one action: draw two train car cards, claim a route by playing matching cards, or draw additional destination tickets. Score points for claiming routes and completing destination tickets.",
+      "winning_strategies": "Balance short connecting routes with high-value destination tickets. Keep an eye on bottlenecks like Chicago and Houston.",
+      "how_i_won": "Hoarded locomotives and claimed the critical double-routes through the center early, preventing opponents from completing east-west transcontinental routes.",
+      "winning_tips": "Do not draw new destination tickets too late in the game; incomplete tickets deduct full points from your final score."
     },
     "Dominion": {
       "bgg_id": 36218,
       "bgg_url": "https://boardgamegeek.com/boardgame/36218",
       "description": "Each player builds their own deck of cards during the game by buying action cards and victory cards from a shared market.",
       "type": "card",
-      "player_count": [2, 4],
+      "player_count": [
+        2,
+        4
+      ],
       "complexity": "medium",
-      "primary_mechanics": ["deck_building", "hand_management", "economic", "turn_based", "victory_points"],
-      "secondary_mechanics": ["set_collection", "card_drafting"],
-      "tags": ["deck_builder", "eurogame", "competitive"],
+      "primary_mechanics": [
+        "deck_building",
+        "hand_management",
+        "economic",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "set_collection",
+        "card_drafting"
+      ],
+      "tags": [
+        "deck_builder",
+        "eurogame",
+        "competitive"
+      ],
       "notes": "First major deck-building game. Victory cards clog your deck. Timing of buying victory points is crucial.",
       "key_mechanics_explained": {
         "deck_building": "You start with a small deck and buy new cards each turn from a shared market, shuffling them into your deck.",
@@ -182,7 +387,369 @@
         "hand_management": "Each turn you draw 5 cards and play from your hand.",
         "turn_based": "Each turn has three phases, in order: play any number of Action cards (one copy each), buy one card from the shared market with Treasure played from your hand, then discard your hand and draw 5 fresh cards. Shuffle your discards when your draw pile runs out.",
         "victory_points": "Province cards are the main victory points (6VP each; Duchy 3, Estate 1). Victory cards are dead cards in hand, so the winning move is often switching from buying engine cards to buying Provinces once the game will end soon. The game ends when Provinces run out or any three supply piles are empty."
-      }
+      },
+      "bayes_avg_rating": 7.62,
+      "num_ratings": 91000,
+      "year_published": 2008,
+      "mfg_playtime": 30,
+      "game_weight": 2.4,
+      "has_video": true,
+      "video_url": "",
+      "components": "500 cards (Kingdom, Treasure, Victory, and Curse cards); 1 trash card mat; 1 rulebook",
+      "how_to_play": "Start with 10 cards (7 coppers, 3 estates). Each turn: ABC (Action, Buy, Cleanup). Play 1 Action card, buy 1 card with treasure, and discard everything to draw 5 new cards.",
+      "winning_strategies": "Build a thin, efficient deck by trashing Coppers and Estates. Pivot to purchasing Provinces when about 4 Provinces remain in the supply.",
+      "how_i_won": "Chained Village and Smithy card draw engines to draw my entire deck every turn, purchasing two Provinces in each of the last three turns.",
+      "winning_tips": "Action cards that grant +Actions and +Cards are essential engines; avoid buying too many terminal actions that cannot be chained."
+    },
+    "Carcassonne": {
+      "bgg_id": 822,
+      "bgg_url": "https://boardgamegeek.com/boardgame/822/carcassonne",
+      "description": "Players draw and place tiles depicting southern French landscapes, deploying meeples as knights, monks, thieves, or farmers to score points.",
+      "type": "strategy",
+      "player_count": [
+        2,
+        5
+      ],
+      "complexity": "low",
+      "primary_mechanics": [
+        "area_control",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "territory_control",
+        "pattern_recognition"
+      ],
+      "tags": [
+        "eurogame",
+        "family",
+        "tile_placement",
+        "classic"
+      ],
+      "notes": "Introduced the modern Meeple token. Farming rules require careful end-game tracking.",
+      "bayes_avg_rating": 7.32,
+      "num_ratings": 118000,
+      "year_published": 2000,
+      "mfg_playtime": 35,
+      "game_weight": 1.9,
+      "has_video": true,
+      "video_url": "",
+      "components": "72 landscape tiles; 40 wooden meeples in 5 colors; 1 scoreboard tile; rulebook",
+      "how_to_play": "Draw a tile and place it so roads, cities, and fields connect logically to existing tiles. Optionally place one of your meeples on that tile's road, city, cloister, or farm. Completed features score points and return your meeple.",
+      "winning_strategies": "Keep at least 2 meeples in hand for quick scoring opportunities. Contest valuable cities with sneaky shared tile attachments.",
+      "how_i_won": "Snuck two farmers onto the central plain in the mid-game and supplied 7 completed cities, scoring 21 farm points at game end.",
+      "winning_tips": "Never strand all your meeples on long uncompleted projects; circulation is key to steady scoring."
+    },
+    "Pandemic": {
+      "bgg_id": 30549,
+      "bgg_url": "https://boardgamegeek.com/boardgame/30549/pandemic",
+      "description": "Players cooperate as a disease-fighting team traveling the globe to treat outbreaks and research four cures before epidemics overwhelm humanity.",
+      "type": "thematic",
+      "player_count": [
+        2,
+        4
+      ],
+      "complexity": "medium",
+      "primary_mechanics": [
+        "hand_management",
+        "asymmetric_roles",
+        "turn_based"
+      ],
+      "secondary_mechanics": [
+        "probability",
+        "movement",
+        "set_collection"
+      ],
+      "tags": [
+        "cooperative",
+        "thematic",
+        "modern_classic"
+      ],
+      "notes": "Purely cooperative game. Each player has a distinct specialist ability.",
+      "bayes_avg_rating": 7.48,
+      "num_ratings": 115000,
+      "year_published": 2008,
+      "mfg_playtime": 45,
+      "game_weight": 2.4,
+      "has_video": true,
+      "video_url": "",
+      "components": "1 world map board; 7 role cards; 7 pawns; 59 player cards; 48 infection cards; 96 disease cubes; 4 cure markers; 1 infection rate marker; 1 outbreak marker",
+      "how_to_play": "On your turn take 4 actions (move, treat disease, share knowledge, or discover a cure). Then draw 2 player cards (watch out for Epidemics!), and finally infect cities according to the infection deck.",
+      "winning_strategies": "Coordinate role strengths: let the Researcher pass cards to the Scientist to cure diseases in 4 cards instead of 5.",
+      "how_i_won": "The Dispatcher moved the Medic directly into hot zones to wipe out 3-cube clusters while the Scientist synthesized the final yellow cure.",
+      "winning_tips": "Treating hotspots before Epidemic draws prevents cascading outbreaks that instantly lose the game."
+    },
+    "Splendor": {
+      "bgg_id": 148228,
+      "bgg_url": "https://boardgamegeek.com/boardgame/148228/splendor",
+      "description": "Renaissance merchants collect raw gem tokens, purchase development cards that provide permanent gem discounts, and attract wealthy noble patrons.",
+      "type": "strategy",
+      "player_count": [
+        2,
+        4
+      ],
+      "complexity": "low",
+      "primary_mechanics": [
+        "economic",
+        "set_collection",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "hand_management"
+      ],
+      "tags": [
+        "engine_building",
+        "family",
+        "card_game"
+      ],
+      "notes": "Elegant engine-building mechanics with tactile poker-chip gem tokens.",
+      "bayes_avg_rating": 7.37,
+      "num_ratings": 78000,
+      "year_published": 2014,
+      "mfg_playtime": 30,
+      "game_weight": 1.8,
+      "has_video": true,
+      "video_url": "",
+      "components": "40 gem chips (ruby, sapphire, emerald, diamond, onyx, gold); 90 development cards; 10 noble tiles; rulebook",
+      "how_to_play": "On your turn: take 3 different gems, take 2 of the same gem, or reserve a card and gain 1 gold joker token. Spend gems to buy cards which permanently act as gem bonuses. First to 15 prestige points triggers the final round.",
+      "winning_strategies": "Aim for a high-tier level 3 card strategy or coordinate purchases around the requirements of 2 noble tiles.",
+      "how_i_won": "Reserved the 5-point emerald card early with a gold token, built a cheap blue-and-white card engine, and claimed two noble visits on the same turn.",
+      "winning_tips": "Do not linger in tier 1 cards too long; tier 2 cards give points plus bonuses that accelerate your win condition."
+    },
+    "7 Wonders": {
+      "bgg_id": 68448,
+      "bgg_url": "https://boardgamegeek.com/boardgame/68448/7-wonders",
+      "description": "Lead one of the seven great cities of the ancient world through three ages of card drafting, exploiting natural resources, commercial routes, and military might.",
+      "type": "strategy",
+      "player_count": [
+        2,
+        7
+      ],
+      "complexity": "medium",
+      "primary_mechanics": [
+        "card_drafting",
+        "hand_management",
+        "set_collection",
+        "turn_based",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "economic"
+      ],
+      "tags": [
+        "simultaneous_play",
+        "drafting",
+        "classic"
+      ],
+      "notes": "Plays up to 7 players with virtually no downtime due to simultaneous drafting.",
+      "bayes_avg_rating": 7.64,
+      "num_ratings": 98000,
+      "year_published": 2010,
+      "mfg_playtime": 30,
+      "game_weight": 2.3,
+      "has_video": true,
+      "video_url": "",
+      "components": "7 wonder boards; 148 age cards; 42 military conflict tokens; 20 coins; 1 score pad",
+      "how_to_play": "Over three ages, players draft cards simultaneously: choose 1 card to construct, sell for coins, or build your wonder stage, then pass the hand to your neighbor.",
+      "winning_strategies": "Keep an eye on neighboring cities: don't feed science cards to an opponent collecting green sets.",
+      "how_i_won": "Drafted green science symbols across all three ages to score 48 points on scientific discovery alone.",
+      "winning_tips": "Ensure you have at least 1 stone and 1 wood resource early so you never get locked out of Age II construction."
+    },
+    "Terraforming Mars": {
+      "bgg_id": 167791,
+      "bgg_url": "https://boardgamegeek.com/boardgame/167791/terraforming-mars",
+      "description": "Giant corporations compete to transform Mars into a habitable planet by raising temperature, oxygen levels, and creating ocean coverage.",
+      "type": "strategy",
+      "player_count": [
+        1,
+        5
+      ],
+      "complexity": "high",
+      "primary_mechanics": [
+        "resource_management",
+        "economic",
+        "hand_management",
+        "territory_control",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "card_drafting",
+        "asymmetric_roles"
+      ],
+      "tags": [
+        "heavy",
+        "sci-fi",
+        "engine_building"
+      ],
+      "notes": "Rich tableau building with hundreds of unique project cards and variable corporate powers.",
+      "bayes_avg_rating": 8.27,
+      "num_ratings": 94000,
+      "year_published": 2016,
+      "mfg_playtime": 120,
+      "game_weight": 3.3,
+      "has_video": true,
+      "video_url": "",
+      "components": "1 game board; 5 player boards; 17 corporation cards; 208 project cards; 8 reference cards; 200 player markers; 400 resource cubes",
+      "how_to_play": "Each generation, buy project cards and spend MegaCredits, steel, titanium, and heat to terraform Mars. Place oceans, greenery, and cities on the map while raising global parameters.",
+      "winning_strategies": "Build your resource production engine (MC and titanium) in the first 4 generations before pivoting to high-VP point cards.",
+      "how_i_won": "Played Ecoline corporation, flooded the southern hemisphere with greenery tiles, and surrounded each forest with high-scoring city tiles.",
+      "winning_tips": "Always compete for the Milestones (Terraformer, Mayor, Planner) early; they yield 5 VP for just 8 MC."
+    },
+    "Codenames": {
+      "bgg_id": 178900,
+      "bgg_url": "https://boardgamegeek.com/boardgame/178900/codenames",
+      "description": "Two rival spymasters give one-word clues that can point to multiple words on the board, while their teammates guess words avoiding the assassin.",
+      "type": "party",
+      "player_count": [
+        2,
+        8
+      ],
+      "complexity": "low",
+      "primary_mechanics": [
+        "pattern_recognition",
+        "turn_based",
+        "hidden_information"
+      ],
+      "secondary_mechanics": [
+        "asymmetric_roles"
+      ],
+      "tags": [
+        "party",
+        "word_game",
+        "deduction"
+      ],
+      "notes": "Classic word deduction party game created by Vlaada Chvátil.",
+      "bayes_avg_rating": 7.51,
+      "num_ratings": 84000,
+      "year_published": 2015,
+      "mfg_playtime": 15,
+      "game_weight": 1.3,
+      "has_video": true,
+      "video_url": "",
+      "components": "16 agent cards; 1 double agent card; 7 innocent bystander cards; 1 assassin card; 40 key cards; 200 double-sided word cards",
+      "how_to_play": "Spymasters give a clue of one word and one number (e.g., 'Fruit, 2'). Operatives touch codename cards to reveal agents of their color. Avoid the black assassin card which ends the game immediately.",
+      "winning_strategies": "Look at the assassin card first before giving any clue to avoid fatal semantic associations.",
+      "how_i_won": "Delivered a daring 4-word clue 'Ocean: 4' connecting Shell, Wave, Submarine, and Whale for an instant walk-off victory.",
+      "winning_tips": "Give clues with broad contextual links (e.g. jobs, materials, environments) rather than overly narrow definitions."
+    },
+    "Brass: Birmingham": {
+      "bgg_id": 224517,
+      "bgg_url": "https://boardgamegeek.com/boardgame/224517/brass-birmingham",
+      "description": "Economic strategy masterpiece set in England's West Midlands during the Industrial Revolution, telling the story of competing entrepreneurs developing industries and network connections.",
+      "type": "strategy",
+      "player_count": [
+        2,
+        4
+      ],
+      "complexity": "high",
+      "primary_mechanics": [
+        "economic",
+        "resource_management",
+        "territory_control",
+        "hand_management",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "turn_based",
+        "area_control"
+      ],
+      "tags": [
+        "heavy",
+        "economic",
+        "historical",
+        "top_rated"
+      ],
+      "notes": "Ranked #1 on BoardGameGeek. Canal era followed by Rail era.",
+      "bayes_avg_rating": 8.42,
+      "num_ratings": 46000,
+      "year_published": 2018,
+      "mfg_playtime": 120,
+      "game_weight": 3.9,
+      "has_video": true,
+      "video_url": "",
+      "components": "1 double-sided board; 4 player mats; 180 industry tiles; 64 location/industry cards; 77 iron and coal cubes; 15 beer barrels; coins and markers",
+      "how_to_play": "Play across the Canal Era and the Rail Era. Spend cards and money to build coal mines, iron works, cotton mills, breweries, and potteries, connecting them with canals and rails.",
+      "winning_strategies": "Control the supply of beer — high-value sell actions require unconsumed beer barrels that can be consumed from your or opponents' breweries.",
+      "how_i_won": "Heavily invested in double-rail connections and pottery in the Rail Era, consuming my own remote breweries for maximum VP multipliers.",
+      "winning_tips": "Do not let opponents use your coal and iron for free unless it flips your industry tile to grant income and victory points."
+    },
+    "Wingspan": {
+      "bgg_id": 266192,
+      "bgg_url": "https://boardgamegeek.com/boardgame/266192/wingspan",
+      "description": "Bird enthusiasts seek to discover and attract the best birds to their network of wildlife preserves across forest, grassland, and wetland habitats.",
+      "type": "strategy",
+      "player_count": [
+        1,
+        5
+      ],
+      "complexity": "medium",
+      "primary_mechanics": [
+        "engine_building",
+        "set_collection",
+        "hand_management",
+        "dice_rolling",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "turn_based"
+      ],
+      "tags": [
+        "nature",
+        "family",
+        "engine_building"
+      ],
+      "notes": "Kennerspiel des Jahres winner with 170 unique illustrated bird cards and custom birdfeeder dice tower.",
+      "bayes_avg_rating": 7.96,
+      "num_ratings": 89000,
+      "year_published": 2019,
+      "mfg_playtime": 60,
+      "game_weight": 2.4,
+      "has_video": true,
+      "video_url": "",
+      "components": "1 birdfeeder dice tower; 5 player mats; 170 bird cards; 26 bonus cards; 75 egg miniatures; 5 custom wooden dice; 40 action cubes",
+      "how_to_play": "Take 1 of 4 actions: play a bird card, gain food from the birdfeeder, lay eggs, or draw bird cards. Playing birds creates powerful engine chains that activate whenever you visit that habitat.",
+      "winning_strategies": "Build a strong Grassland egg-laying engine early; eggs are both currency for high-tier birds and raw victory points at game end.",
+      "how_i_won": "Assembled an automatic wetland card-drawing engine that cached wheat on bird cards every time I drew cards, scoring 104 points.",
+      "winning_tips": "Pay close attention to round-end goals from round 1; hitting round goal bonuses is often the tiebreaker."
+    },
+    "Tiny Epic Galaxies": {
+      "bgg_id": 147101,
+      "bgg_url": "https://boardgamegeek.com/boardgame/147101/tiny-epic-galaxies",
+      "description": "Each player commands a galactic empire, rolling custom dice to manage resources, colonize planets, and expand cosmic influence in a compact box.",
+      "type": "strategy",
+      "player_count": [
+        1,
+        5
+      ],
+      "complexity": "low",
+      "primary_mechanics": [
+        "dice_rolling",
+        "resource_management",
+        "territory_control",
+        "victory_points"
+      ],
+      "secondary_mechanics": [
+        "turn_based"
+      ],
+      "tags": [
+        "sci-fi",
+        "dice",
+        "compact"
+      ],
+      "notes": "Features an innovative 'Follow' mechanic where opponents can spend culture to copy your die actions.",
+      "bayes_avg_rating": 7.02,
+      "num_ratings": 22000,
+      "year_published": 2015,
+      "mfg_playtime": 35,
+      "game_weight": 2.2,
+      "has_video": true,
+      "video_url": "",
+      "components": "5 galaxy mats; 40 planet cards; 12 secret mission cards; 7 custom galaxy dice; 20 wooden ships; tracking tokens",
+      "how_to_play": "Roll galaxy dice and assign them to acquire resources, advance ships along planetary colonization tracks, or upgrade your galaxy level to unlock more dice and ships.",
+      "winning_strategies": "Invest in culture production early so you can follow high-value opponent rolls and advance on planets outside your turn.",
+      "how_i_won": "Focused on diplomatic track planets with high base VP, consistently following opponents' diplomacy rolls to colonize 4 planets before turn 7.",
+      "winning_tips": "Upgrading your galaxy level gives you more dice to roll each turn, dramatically multiplying your efficiency."
     }
   },
   "mechanic_labels": {

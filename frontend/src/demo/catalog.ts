@@ -16,6 +16,21 @@ export interface GameRecord {
   tags: string[];
   notes?: string;
   key_mechanics_explained?: Record<string, string>;
+  image_path?: string;
+  bayes_avg_rating?: number;
+  num_ratings?: number;
+  year_published?: number;
+  mfg_playtime?: number;
+  game_weight?: number;
+  has_video?: boolean;
+  video_url?: string;
+  components?: string;
+  how_to_play?: string;
+  winning_strategies?: string;
+  how_i_won?: string;
+  winning_tips?: string;
+  designers?: string;
+  publishers?: string;
 }
 
 interface RawCatalog {
@@ -29,13 +44,14 @@ export const GAMES: GameRecord[] = Object.entries(data.games).map(([name, g]) =>
   name,
   ...g,
   player_count: g.player_count as [number, number],
+  image_path: g.image_path ?? (g.bgg_id ? `/images/game_${g.bgg_id}.jpg` : undefined),
 }));
 
 export const MECHANIC_LABELS: Record<string, string> = data.mechanic_labels;
 
-// Same curated split as recommendation/api.py
-export const TARGET_GAMES = ["Catan", "Ticket to Ride", "Dominion"];
-export const KNOWN_GAMES = ["Chess", "Monopoly", "Uno", "Poker", "Checkers", "Risk", "Scrabble"];
+// Curated split
+export const TARGET_GAMES = ["Catan", "Ticket to Ride", "Dominion", "Carcassonne", "Pandemic", "Splendor", "Terraforming Mars"];
+export const KNOWN_GAMES = ["Chess", "Monopoly", "Uno", "Poker", "Checkers", "Risk", "Scrabble", "Codenames", "7 Wonders", "Wingspan"];
 
 export function mechanicLabel(tag: string): string {
   return MECHANIC_LABELS[tag] ?? tag.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -61,6 +77,23 @@ export function demoGamesResponse(): GamesResponse {
     primary_mechanics: g.primary_mechanics,
     primary_mechanic_labels: g.primary_mechanics.map(mechanicLabel),
     tags: g.tags,
+    bgg_id: g.bgg_id,
+    bgg_url: g.bgg_url,
+    image_path: g.image_path,
+    bayes_avg_rating: g.bayes_avg_rating,
+    num_ratings: g.num_ratings,
+    year_published: g.year_published,
+    mfg_playtime: g.mfg_playtime,
+    game_weight: g.game_weight,
+    has_video: g.has_video,
+    video_url: g.video_url,
+    components: g.components,
+    how_to_play: g.how_to_play,
+    winning_strategies: g.winning_strategies,
+    how_i_won: g.how_i_won,
+    winning_tips: g.winning_tips,
+    designers: g.designers,
+    publishers: g.publishers,
   }));
   return {
     supported_games: supported,

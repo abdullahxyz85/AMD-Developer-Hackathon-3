@@ -5,21 +5,35 @@ import { Meeple } from "./components/ui";
 import { CompareView } from "./views/CompareView";
 import { GamesView } from "./views/GamesView";
 import { LearnView } from "./views/LearnView";
+import { PicksView } from "./views/PicksView";
+import { ShelfView } from "./views/ShelfView";
+import { StudioView } from "./views/StudioView";
+import { SubmitView } from "./views/SubmitView";
 import { SystemView } from "./views/SystemView";
 
-const VIEWS = [
-  { id: "learn", label: "Learn a game", el: <LearnView /> },
-  { id: "compare", label: "Compare players", el: <CompareView /> },
-  { id: "games", label: "Game shelf", el: <GamesView /> },
-  { id: "system", label: "System", el: <SystemView /> },
-] as const;
-type ViewId = (typeof VIEWS)[number]["id"];
+export type ViewId = "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit" | "system";
 
-// Hash routing keeps every view linkable on any static host, no rewrites needed.
+interface ViewItem {
+  id: ViewId;
+  label: string;
+  icon: string;
+}
+
+const VIEW_ITEMS: ViewItem[] = [
+  { id: "learn", label: "Learn a game", icon: "🎓" },
+  { id: "compare", label: "Compare players", icon: "⚖️" },
+  { id: "games", label: "Game shelf", icon: "🎲" },
+  { id: "picks", label: "Picks", icon: "✨" },
+  { id: "shelf", label: "My shelf", icon: "📚" },
+  { id: "studio", label: "Videos", icon: "🎬" },
+  { id: "submit", label: "Submit", icon: "🏆" },
+  { id: "system", label: "System & AI", icon: "⚙️" },
+];
+
 function useHashView(): [ViewId, (v: ViewId) => void] {
   const read = (): ViewId => {
     const h = window.location.hash.replace(/^#\/?/, "");
-    return (VIEWS.find((v) => v.id === h)?.id ?? "learn") as ViewId;
+    return (VIEW_ITEMS.find((v) => v.id === h)?.id ?? "learn") as ViewId;
   };
   const [view, setView] = useState<ViewId>(read);
   useEffect(() => {
@@ -40,49 +54,97 @@ function useConnectedCount() {
 export default function App() {
   const [view, go] = useHashView();
   const connected = useConnectedCount();
-  const current = VIEWS.find((v) => v.id === view)!;
+  const [targetGameToTeach, setTargetGameToTeach] = useState<string>("Catan");
+
+  const currentItem = VIEW_ITEMS.find((v) => v.id === view) || VIEW_ITEMS[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `${current.label} | Board-Game Tutor`;
-  }, [view, current.label]);
+    document.title = `${currentItem.label} | Board-Game Tutor`;
+  }, [view, currentItem.label]);
+
+  function handleTeachGame(name: string) {
+    setTargetGameToTeach(name);
+    go("learn");
+  }
+
+  function renderCurrentView() {
+    switch (view) {
+      case "learn":
+        return <LearnView initialTarget={targetGameToTeach} />;
+      case "compare":
+        return <CompareView />;
+      case "games":
+        return <GamesView onTeachGame={handleTeachGame} />;
+      case "picks":
+        return <PicksView onTeachGame={handleTeachGame} />;
+      case "shelf":
+        return <ShelfView onTeachGame={handleTeachGame} />;
+      case "studio":
+        return <StudioView />;
+      case "submit":
+        return <SubmitView />;
+      case "system":
+        return <SystemView />;
+      default:
+        return <LearnView initialTarget={targetGameToTeach} />;
+    }
+  }
 
   return (
     <CatalogProvider>
-      <div className="min-h-screen md:grid md:grid-cols-[15rem_minmax(0,1fr)]">
-        <aside className="border-b-2 border-ink bg-surface md:sticky md:top-0 md:h-screen md:border-b-0 md:border-r-2">
-          <div className="flex items-center gap-2.5 px-5 py-4 md:py-6">
-            <Meeple color="var(--red)" size={30} />
-            <span className="font-display text-xl font-extrabold leading-none">Board-Game<br className="hidden md:block" /> Tutor</span>
+      <div className="min-h-screen md:grid md:grid-cols-[16rem_minmax(0,1fr)]">
+        <aside className="border-b-2 border-ink bg-surface md:sticky md:top-0 md:h-screen md:border-b-0 md:border-r-2 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2.5 px-5 py-4 md:py-6 border-b border-sunk md:border-b-0">
+              <Meeple color="var(--red)" size={32} />
+              <div>
+                <span className="font-display text-xl font-extrabold leading-none block">Board-Game</span>
+                <span className="font-display text-xs font-bold text-red tracking-wider uppercase">Tutor & Wiki</span>
+              </div>
+            </div>
+
+            <nav aria-label="Main" className="flex gap-1 overflow-x-auto px-3 py-2 md:flex-col md:px-3 md:py-1">
+              {VIEW_ITEMS.map((v) => {
+                const on = v.id === view;
+                return (
+                  <a
+                    key={v.id}
+                    href={`#/${v.id}`}
+                    onClick={(e) => { e.preventDefault(); go(v.id); }}
+                    aria-current={on ? "page" : undefined}
+                    className="whitespace-nowrap rounded-lg px-3.5 py-2 font-display text-sm font-semibold flex items-center gap-2 transition"
+                    style={
+                      on
+                        ? { background: "var(--ink)", color: "var(--paper)" }
+                        : { color: "var(--ink)" }
+                    }
+                  >
+                    <span className="text-base">{v.icon}</span>
+                    <span>{v.label}</span>
+                  </a>
+                );
+              })}
+            </nav>
           </div>
-          <nav aria-label="Main" className="flex gap-1 overflow-x-auto px-3 pb-3 md:flex-col md:px-3">
-            {VIEWS.map((v) => {
-              const on = v.id === view;
-              return (
-                <a
-                  key={v.id}
-                  href={`#/${v.id}`}
-                  onClick={(e) => { e.preventDefault(); go(v.id); }}
-                  aria-current={on ? "page" : undefined}
-                  className="whitespace-nowrap rounded-full px-4 py-2 font-display font-semibold"
-                  style={on ? { background: "var(--ink)", color: "var(--paper)" } : undefined}
-                >
-                  {v.label}
-                </a>
-              );
-            })}
-          </nav>
-          <div className="hidden px-5 pt-6 text-sm md:block">
-            <a href="#/system" onClick={(e) => { e.preventDefault(); go("system"); }} className="block rounded-md border-2 border-ink p-3 hover:bg-sunk">
-              <span className="font-bold">{connected === 0 ? "Demo mode" : `${connected} of 3 services connected`}</span>
-              <span className="mt-1 block text-ink-soft">
-                {connected === 0 ? "Runs on bundled game data. Connect your services here." : "Anything not connected uses demo data."}
+
+          <div className="hidden px-5 pb-6 text-sm md:block border-t border-sunk pt-4">
+            <a href="#/system" onClick={(e) => { e.preventDefault(); go("system"); }} className="block rounded-md border-2 border-ink p-3 hover:bg-sunk transition">
+              <span className="font-bold flex items-center justify-between">
+                <span>{connected === 0 ? "Demo mode" : `${connected} / 3 Connected`}</span>
+                <span className="h-2 w-2 rounded-full" style={{ background: connected > 0 ? "var(--green)" : "var(--yellow)" }} />
+              </span>
+              <span className="mt-1 block text-xs text-ink-soft">
+                {connected === 0 ? "Using curated catalog data. Configure AMD inference." : "Live inference active."}
               </span>
             </a>
-            <p className="mt-6 text-xs text-ink-soft">Built for the AMD Developer Hackathon Act III.</p>
+            <p className="mt-4 text-[11px] text-ink-soft">Built for the AMD Developer Hackathon Act III.</p>
           </div>
         </aside>
-        <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-8 md:py-12">{current.el}</main>
+
+        <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 md:py-10">
+          {renderCurrentView()}
+        </main>
       </div>
     </CatalogProvider>
   );

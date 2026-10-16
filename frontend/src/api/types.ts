@@ -34,6 +34,25 @@ export interface GameSummary {
   primary_mechanics: string[];
   primary_mechanic_labels: string[];
   tags: string[];
+  // Extended metadata from BGG & Static
+  bgg_id?: number;
+  bgg_url?: string;
+  image_path?: string;
+  bayes_avg_rating?: number;
+  num_ratings?: number;
+  year_published?: number;
+  mfg_playtime?: number;
+  game_weight?: number;
+  has_video?: boolean;
+  video_url?: string;
+  components?: string;
+  how_to_play?: string;
+  winning_strategies?: string;
+  how_i_won?: string;
+  winning_tips?: string;
+  designers?: string;
+  publishers?: string;
+  submitted_by?: string;
 }
 
 export interface GamesResponse {
@@ -41,6 +60,49 @@ export interface GamesResponse {
   mechanic_vocabulary: Record<string, string>;
   target_games: string[];
   known_games: string[];
+}
+
+// ── Shelf, Community & AI types ──────────────────────────────────────────
+export interface PlayedGame {
+  bgg_id?: number;
+  name: string;
+  rating: number; // 1.0 - 10.0
+  notes: string;
+  date_logged: string;
+}
+
+export interface UserShelfProfile {
+  username: string;
+  display_name: string;
+  bio: string;
+  plays: PlayedGame[];
+}
+
+export interface CommunitySubmission {
+  id: string;
+  name: string;
+  year_published: number;
+  min_players: number;
+  max_players: number;
+  mfg_playtime: number;
+  game_weight: number;
+  categories: string;
+  mechanics: string;
+  description: string;
+  how_i_won?: string;
+  winning_tips?: string;
+  submitted_by: string;
+  date_added: string;
+}
+
+export interface AIConfig {
+  provider: "amd" | "zai" | "ollama" | "custom";
+  apiKey: string;
+  serverUrl: string;
+  modelName: string;
+  temperature: number;
+  maxTokens: number;
+  enabled: boolean;
 }
 
 // ── RAG service ──────────────────────────────────────────────────────────
