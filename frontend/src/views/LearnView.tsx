@@ -7,9 +7,9 @@ import { GOALS, KnownGamesPicker, LevelGoal, TargetPicker } from "../components/
 import { VisualPlayer } from "../components/VisualPlayer";
 import { Notice, Spinner } from "../components/ui";
 
-export function LearnView({ initialTarget }: { initialTarget?: string }) {
+export function LearnView({ initialTarget, initialKnown }: { initialTarget?: string; initialKnown?: string[] }) {
   const { knownGames, targetGames } = useCatalog();
-  const [known, setKnown] = useState<string[]>(["Monopoly", "Chess"]);
+  const [known, setKnown] = useState<string[]>(initialKnown?.length ? initialKnown : ["Monopoly", "Chess"]);
   const [target, setTarget] = useState(initialTarget || "Catan");
 
   useEffect(() => {
@@ -17,6 +17,9 @@ export function LearnView({ initialTarget }: { initialTarget?: string }) {
       setTarget(initialTarget);
     }
   }, [initialTarget]);
+  useEffect(() => {
+    if (initialKnown?.length) setKnown(initialKnown);
+  }, [initialKnown]);
   const [level, setLevel] = useState<UserLevel>("beginner");
   const [goal, setGoal] = useState(GOALS[0]);
   const [busy, setBusy] = useState(false);
