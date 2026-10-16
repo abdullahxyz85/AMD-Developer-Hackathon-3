@@ -1,0 +1,42 @@
+{
+  "game": "Poker",
+  "bgg_id": 1115,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Poker (in its most common form, Texas Hold'em) is a betting game for 2–10 players. Players compete to win chips, which represent money. You win a hand either by having the best five-card poker hand at showdown or by betting in a way that makes all other players fold. There is no fixed end: the game continues as long as players agree, and the overall winner is the player who accumulates the most chips.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "components",
+      "text": "A standard 52-card deck (no jokers) and poker chips or another token of value. For Texas Hold'em: a dealer button that rotates clockwise each hand, and blind markers for the two players left of the dealer who post forced bets (small blind and big blind) before cards are dealt.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "setup",
+      "text": "Each player buys in for an equal number of chips. Determine the first dealer (e.g. by dealing cards until an Ace appears). The player to the dealer's left posts the small blind, the next player the big blind the small blind is typically half the big blind). The dealer then deals two face-down hole cards to each player, one at a time, starting with the small blind.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "A hand has four betting rounds. Pre-flop: starting left of the big blind, each player folds, calls the big blind, or raises; betting continues until all active players have matched the highest bet. Flop: three community cards are dealt face up, followed by a betting round starting left of the dealer. Turn: a fourth community card and another betting round. River: a fifth community card and the final betting round. Showdown: remaining players reveal their hole cards; the best five-card hand made from any combination of your two hole cards and the five community cards wins the pot. The dealer button then moves one seat left and the next hand begins.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Hand rankings from strongest to weakest: royal flush, straight flush, four of a kind, full house, flush, straight, three of a kind, two pair, one pair, high card. Betting actions are fold (drop out of the hand), check (bet nothing, only if no bet is facing you), call (match the current bet), bet/raise (put chips in, forcing others to match), and all-in (wager every chip; see exceptions). Position matters: acting later in a round gives you more information. Because you can win by making everyone fold, bluffing — betting with a weak hand to represent strength — is a core skill, as is folding strong-looking-but-beaten hands.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Ties: if the best five-card hands are identical in rank, the pot is split (kickers — the remaining highest cards — break most ties). All-in: a player with fewer chips than the current bet may go all-in for less and remain eligible for the portion of the pot their chips cover; any excess bets form a side pot contested only by fully-staked players. Minimum raises must be at least the size of the previous bet or raise. If everyone folds to a blind, the pot goes to the last remaining player without a showdown. If all players but one are all-in, remaining community cards are dealt out and hands are shown.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1: your hole cards are King and Queen of hearts; the board comes 10h, Jh, 2c, Ah, 4s — you hold an ace-high heart flush (K-Q-J-10-A of hearts) and win at showdown. Example 2: pre-flop, the big blind is 10 chips. You are first to act and raise to 30; the next player calls 30, and both blinds fold. You win their blinds plus the 60 chips without showing cards — an example of winning by folds. Example 3: two players both hold a pair of Aces with the board A,7,7,4,2 — hand values tie on A-A-7-7, so the fifth card (kicker) decides: a King beats a 9.",
+      "source": { "title": "Poker — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/1115/poker" }
+    }
+  ]
+}

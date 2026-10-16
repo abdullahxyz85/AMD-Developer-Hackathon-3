@@ -1,0 +1,42 @@
+{
+  "game": "Risk",
+  "bgg_id": 181,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Risk is a conquest game for 2–6 players. The goal is global domination: you win by being the last player in the game — either by occupying all 42 territories or by eliminating every other player (house rules often end the game when one player completes a secret mission or controls a set number of territories).",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "components",
+      "text": "A world map divided into 42 territories grouped into 6 continents, each continent worth a bonus. Armies in each player's color (infantry = 1, cavalry = 5, artillery = 10 for convenience). A deck of 42 territory cards (each shows infantry, cavalry, or artillery) plus wild cards. Five dice. Initial army counts by player number: 40 (2p), 35 (3p), 30 (4p), 25 (5p), 20 (6p).",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "setup",
+      "text": "Shuffle the territory cards and deal them out (or take turns claiming territories in official variants); each player places their starting armies on the territories they received — as one army per territory minimum, distributing the rest freely in the classic deal-out method. Sort territory cards into a draw deck (wilds included) and place it beside the map. Everyone starts with a full-strength border or a protected core depending on preference; choose a first player.",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "Each turn has three phases. (1) Reinforce: count your territories and divide by 3 (minimum 3 armies); add continent bonuses if you own every territory in a continent (e.g. South America 2, Australia 2, Africa 3, Europe 5, North America 5, Asia 7); if you hold 5 or more territory cards you must trade in matched sets (3 of a kind or 3 different kinds) for armies — the set values escalate: first sets 4, then 6, 8, 10, 12, and 15 thereafter (wilds substitute in sets); cashing in a set that includes a card matching a territory you own lets you place 2 extra armies there. Place all these armies on your territories. (2) Attack: you may attack any number of times. To attack, pick one of your territories with at least 2 armies and an adjacent enemy territory; roll up to 3 red dice (one fewer than the armies in the attacking territory) while the defender rolls 1 or 2 white dice; compare dice from highest to lowest — the higher die wins each pairing, and the defender wins ties; the loser of each pairing removes one army. If the defender loses their last army you capture the territory and must move at least as many armies in as the number of dice you rolled (at least 2 stay behind in the origin). Capturing at least one territory during your turn earns you 1 territory card (max one per turn). (3) Fortify: move any number of armies from a single one of your territories to one connected friendly territory (linked through your own chain of territories, or simply adjacent). Your turn ends.",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Dice combat favors the attacker only in numbers: with 3 attack dice versus 2 defense dice the attacker wins about 65% of individual pairings but loses armies steadily, so massing armies and attacking weak borders matters more than single rolls. Continent bonuses reward tight defense — Australia and South America have one and two entrance points respectively, making them classic strongholds. Territory cards create escalation: holding territories without cashing sets leads to forced cash-ins at 5+ cards, and set values rise as the game progresses, accelerating the endgame. Positioning after capture (moving stacks of armies into a new territory) shapes next-turn pressure.",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "exceptions",
+      "text": "You can never move armies out of a territory leaving it empty — at least one army always remains. If you eliminate a player, you take their territory cards; if that gives you 6 or more cards you must immediately trade in sets and place the armies. Armies lost in combat come off the territory in question, not your reserve. Defense dice choice is the defender's (rolling 2 dice wins ties more often; rolling 1 die limits losses to one). A player who captures a territory draws a card only once per turn, even if they capture several. Fortifying may pass through any chain of your own territories in most editions; the original rule allows moving only between two adjacent friendly territories.",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1 (reinforce): you hold 12 territories and all of South America: 12 ÷ 3 = 4, plus the 2-army continent bonus = 6 armies to place. Example 2 (attack): you have 5 armies in Brazil and attack Venezuela (defended by 2) with 3 dice; you roll 6,5,2 and the defender rolls 5,3 — the highest dice pair off first: your 6 beats their 5 and your 5 beats their 3, so the defender loses 2 armies. Example 3 (capture): with the defender reduced to 0 you occupy Venezuela; since you rolled 3 dice you must move at least 3 armies in, leaving at least 2 in Brazil, and you draw one territory card at the end of your attacks.",
+      "source": { "title": "Risk — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/181/risk" }
+    }
+  ]
+}

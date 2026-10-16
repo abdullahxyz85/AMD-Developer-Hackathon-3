@@ -1,0 +1,42 @@
+{
+  "game": "Scrabble",
+  "bgg_id": 320,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Scrabble is a word-building game for 2–4 players. Players score points by forming words on a board with letter tiles of different values and premium squares. The game ends when the tile bag is empty and one player uses all their tiles, or when no player can make a valid move; the highest total score wins (players still holding tiles subtract their tile values at the end).",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "components",
+      "text": "A 15×15 board whose squares include premium squares: double-letter and triple-letter score (affect one tile) and double-word and triple-word score (affect the whole word; some squares combine, multiplying letter first then word). 100 letter tiles with printed point values — vowels and common letters (E, A, I, S...) are worth 1, rare letters (Q, Z, J, X) up to 10 — plus 2 blank tiles worth 0 points that stand for any letter. A tile bag, 4 racks, and a standard dictionary or word list for challenges.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "setup",
+      "text": "Put all 100 tiles in the bag. Each player draws one tile; the player with the letter closest to the start of the alphabet (a blank counts first) plays first and uses those tiles as their first rack draw. Refill the bag and give each player 7 tiles. The first word must cover the center star square (an implied double-word) and be at least two letters long.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "On your turn, choose one of three actions. (1) Play: form one new word reading left-to-right or top-to-bottom; the word must connect to at least one tile already on the board (first word excepted), and any other words formed by the tiles you place (crosswords) must also be valid. Score the turn: sum each newly placed tile's value with its letter premium, then multiply the whole word for each word premium covered by a new tile; add the values of cross-words formed. Using all 7 tiles in one turn is a bingo: add 50 points. Then draw back up to 7. (2) Exchange: swap any or all of your rack for new tiles from the bag (only if at least 7 remain) and score nothing. (3) Pass: score nothing. Play proceeds clockwise.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "The engine of scoring is overlap: one well-placed tile can form two or more words at once and hit several premiums — a new letter under an existing one creates a cross-word that scores both. Word premiums multiply dramatically when chained (double-word then triple-word yields ×6 for one word). Tile management matters as much as vocabulary: holding a balanced rack of common letters and a blank or an S (which pluralizes almost any noun) makes future turns flexible; dumping awkward tiles (V, Q without U) prevents dead racks. Tracking which high-value letters remain unseen informs defensive play.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Blank tiles: score 0, must be designated a letter when played, and may be challenged. Word premiums only count for tiles placed on the current turn — an existing tile sitting on a premium square no longer multiplies. The center star counts as a double-word only for the opening word. Challenges: in tournament rules, a challenged word found invalid is removed and the player loses that turn; if the word is valid, the challenger loses their next turn (house rules vary — some return the score). Proper nouns, abbreviations, hyphenated words, and foreign words are not allowed unless the agreed dictionary lists them. All words formed in a single play must be legal, not just the main word.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1 (premium math): you play QUIZ with Q on a double-letter (10×2 = 20), U (1), I (1), Z on a triple-letter (10×3 = 30) — letters total 52; the word also covers a double-word: 52 × 2 = 104 points. Example 2 (cross-word): the board already shows CAT; you add a S before it to make SCAT, and your S also forms SUN going down — you score both SCAT and SUN. Example 3 (bingo): using all seven tiles RETAINED in one word scores the word value plus a 50-point bonus, and you draw a fresh rack of 7.",
+      "source": { "title": "Scrabble — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/320/scrabble" }
+    }
+  ]
+}

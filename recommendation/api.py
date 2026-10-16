@@ -54,9 +54,12 @@ class GamesResponse(BaseModel):
     known_games: list[str]                # games usable as "known" by player
 
 
-# Curated lists — update these as you add more games to games.json
-_TARGET_GAMES = ["Catan", "Ticket to Ride", "Dominion"]
-_KNOWN_GAMES  = ["Chess", "Monopoly", "Uno", "Poker", "Checkers", "Risk", "Scrabble"]
+# Every catalog game can be picked as "known" or as the game to learn.
+# (The UI greys out targets the player already knows; POST /recommend also
+# drops the target from known_games defensively.)
+_ALL_GAMES = list(catalog.supported_games)
+_TARGET_GAMES = _ALL_GAMES
+_KNOWN_GAMES = _ALL_GAMES
 
 
 # ── POST /recommend ───────────────────────────────────────────────────────────
@@ -73,11 +76,19 @@ _KNOWN_GAMES  = ["Chess", "Monopoly", "Uno", "Poker", "Checkers", "Risk", "Scrab
 )
 def recommend(req: RecommendationRequest) -> RecommendationResponse:
     """Generate mechanic-level recommendations for a player profile."""
+    # A game can't be used to teach itself — drop it from the known list.
+    known = [g for g in req.known_games if g != req.target_game]
     try:
-        return get_recommendations(
-            known_games=req.known_games,
+        response = get_recommendations(
+            known_games=known,
             target_game=req.target_game,
         )
+        if len(known) != len(req.known_games):
+            response.warnings.append(
+                "The game you want to learn was removed from your known games "
+                "— it can't be used as a comparison for itself."
+            )
+        return response
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except Exception as exc:

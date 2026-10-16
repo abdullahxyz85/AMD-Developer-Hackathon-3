@@ -1,0 +1,42 @@
+{
+  "game": "Chess",
+  "bgg_id": 171,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Chess is a two-player game. The winner is the player who checkmates the opponent's king — attacks it in a way that no legal reply can save it. If neither side can force checkmate, the game is a draw.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "components",
+      "text": "Chess is played on an 8×8 board of alternating light and dark squares. Each player starts with 16 pieces: 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen, and 1 king. White and Black pieces are distinguished by color, and the two players sit on opposite sides with a full rank of pawns in front of their pieces.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "setup",
+      "text": "The board is oriented so each player has a light square in their bottom-right corner. Pieces start on the players' first two ranks: rooks in the corners, knights next to them, then bishops, then the queen on her own color (white queen on a light square, black queen on a dark square) and the king beside her. Pawns fill the entire second rank. White sits on one side, Black on the other; White moves first.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "Players alternate turns, one move each, with White moving first. You must make a move on your turn — passing is not allowed. A move is either moving one of your pieces to an empty square, moving onto an enemy piece's square to capture it (the captured piece is removed), or a special move such as castling. You may never make a move that leaves your own king in check. If your king is attacked (in check), your entire move must resolve the check: move the king, block the attack, or capture the attacker.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Piece movement: pawns move straight forward one square (or two from their starting square) but capture one square diagonally forward; knights move in an L-shape and are the only piece that jumps over others; bishops move any distance diagonally; rooks any distance horizontally or vertically; the queen combines rook and bishop; the king moves one square in any direction. Check and checkmate: a king under attack is in check and must be rescued immediately; when no legal move removes the check, it is checkmate and the game ends. Draws: stalemate (a player to move has no legal move but is not in check), threefold repetition of the same position, the 50-move rule without a pawn move or capture, and mutual agreement are all draws.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Special pawn rules: a pawn that reaches the last rank is promoted — it is replaced by a queen, rook, bishop, or knight of the same color (almost always a queen). En passant: a pawn attacking a square jumped over by an enemy pawn that just advanced two squares may capture that pawn as if it had moved only one square — but only on the move immediately after the double advance. Castling: once per game, a king and one of its rooks may move together — the king slides two squares toward the rook and the rook jumps to the king's other side — but only if neither piece has moved yet, no pieces stand between them, the king is not in check, and the king does not pass through or land on an attacked square.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    },
+    {
+      "section": "examples",
+      "text": "Checkmate example: Scholar's Mate — after 1.e4 e5 2.Bc4 Nc6 3.Qh5, White's queen and bishop both threaten f7, the weakest square in Black's early position; if Black defends poorly (3...Nf6??), 4.Qxf7# is checkmate because the king cannot escape or capture the defended queen. En passant example: White's pawn sits on e5 and Black plays d7–d5; White may immediately capture the d5 pawn with exd6 e.p., even though White's pawn lands on the empty d6 square rather than on d5. Castling example: with all pieces between e1 and h1 cleared and none of them having moved, White may castle kingside: king e1→g1, rook h1→f1.",
+      "source": { "title": "Chess — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/171/chess" }
+    }
+  ]
+}

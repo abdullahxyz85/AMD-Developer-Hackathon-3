@@ -78,7 +78,7 @@ Two layers (see WORKPLAN.md §1):
 | Layer | Source | Content |
 |---|---|---|
 | A — fact cards (74 chunks) | `recommendation/data/games.json` | per-game overview, mechanics inventory, per-mechanic rule cards, notes |
-| B — curated rules (28 chunks) | `knowledge/curated_rules/*.json` | objective, components, setup, turn_structure, core_mechanics, exceptions, examples for Catan / Monopoly / Chess / Ticket to Ride |
+| B — curated rules (70 chunks) | `knowledge/curated_rules/*.json` | objective, components, setup, turn_structure, core_mechanics, exceptions, examples for **all 10 games**: Catan, Monopoly, Chess, Ticket to Ride, Dominion, Uno, Poker, Risk, Scrabble, Checkers |
 
 All chunks carry `bgg_url` citations. Rule text is original summary — we link to sources,
 we do not republish rulebooks.
@@ -96,7 +96,8 @@ Embeddings run on CPU by design for demo reliability (decision D5: ROCm/ONNX var
 
 ## Evaluation snapshot
 
-See `eval/RESULTS.md` (32 questions). Hybrid RRF beats keyword-only and vector-only:
-**hit@5 0.92, MRR 0.62** vs 0.80/0.58 (keyword) and 0.88/0.55 (vector).
+See `eval/RESULTS.md` (33 questions). Hybrid RRF beats keyword-only and vector-only:
+**hit@3 0.84, MRR 0.63** vs 0.72/0.56 (keyword) and 0.68/0.53 (vector), with perfect
+unknown-game detection; curated rules cover all 10 games (70 chunks).
 Known limitations are documented there honestly — most importantly, absent-topic detection
 in-KB is delegated to prompt-level grounding.
