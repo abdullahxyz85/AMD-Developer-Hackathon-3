@@ -4,6 +4,7 @@ import { CatalogProvider } from "./catalog";
 import { Meeple } from "./components/ui";
 import { CompareView } from "./views/CompareView";
 import { GamesView } from "./views/GamesView";
+import { LandingView } from "./views/LandingView";
 import { LearnView } from "./views/LearnView";
 import { PicksView } from "./views/PicksView";
 import { ShelfView } from "./views/ShelfView";
@@ -11,7 +12,7 @@ import { StudioView } from "./views/StudioView";
 import { SubmitView } from "./views/SubmitView";
 import { SystemView } from "./views/SystemView";
 
-export type ViewId = "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit" | "system";
+export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit" | "system";
 
 interface ViewItem {
   id: ViewId;
@@ -33,6 +34,7 @@ const VIEW_ITEMS: ViewItem[] = [
 function useHashView(): [ViewId, (v: ViewId) => void] {
   const read = (): ViewId => {
     const h = window.location.hash.replace(/^#\/?/, "");
+    if (h === "" || h === "home") return "home";
     return (VIEW_ITEMS.find((v) => v.id === h)?.id ?? "learn") as ViewId;
   };
   const [view, setView] = useState<ViewId>(read);
@@ -55,23 +57,33 @@ export default function App() {
   const [view, go] = useHashView();
   const connected = useConnectedCount();
   const [targetGameToTeach, setTargetGameToTeach] = useState<string>("Catan");
+  const [knownToTeach, setKnownToTeach] = useState<string[] | undefined>(undefined);
 
   const currentItem = VIEW_ITEMS.find((v) => v.id === view) || VIEW_ITEMS[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `${currentItem.label} | Board-Game Tutor`;
+    document.title = view === "home" ? "Board-Game Tutor" : `${currentItem.label} | Board-Game Tutor`;
   }, [view, currentItem.label]);
 
-  function handleTeachGame(name: string) {
+  function handleTeachGame(name: string, known?: string[]) {
     setTargetGameToTeach(name);
+    if (known?.length) setKnownToTeach(known);
     go("learn");
+  }
+
+  if (view === "home") {
+    return (
+      <CatalogProvider>
+        <LandingView onTeach={handleTeachGame} go={go} />
+      </CatalogProvider>
+    );
   }
 
   function renderCurrentView() {
     switch (view) {
       case "learn":
-        return <LearnView initialTarget={targetGameToTeach} />;
+        return <LearnView initialTarget={targetGameToTeach} initialKnown={knownToTeach} />;
       case "compare":
         return <CompareView />;
       case "games":
@@ -87,7 +99,7 @@ export default function App() {
       case "system":
         return <SystemView />;
       default:
-        return <LearnView initialTarget={targetGameToTeach} />;
+        return <LearnView initialTarget={targetGameToTeach} initialKnown={knownToTeach} />;
     }
   }
 
@@ -96,13 +108,13 @@ export default function App() {
       <div className="min-h-screen md:grid md:grid-cols-[16rem_minmax(0,1fr)]">
         <aside className="border-b-2 border-ink bg-surface md:sticky md:top-0 md:h-screen md:border-b-0 md:border-r-2 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2.5 px-5 py-4 md:py-6 border-b border-sunk md:border-b-0">
+            <a href="#/home" onClick={(e) => { e.preventDefault(); go("home"); }} className="flex items-center gap-2.5 px-5 py-4 md:py-6 border-b border-sunk md:border-b-0">
               <Meeple color="var(--red)" size={32} />
               <div>
                 <span className="font-display text-xl font-extrabold leading-none block">Board-Game</span>
                 <span className="font-display text-xs font-bold text-red tracking-wider uppercase">Tutor & Wiki</span>
               </div>
-            </div>
+            </a>
 
             <nav aria-label="Main" className="flex gap-1 overflow-x-auto px-3 py-2 md:flex-col md:px-3 md:py-1">
               {VIEW_ITEMS.map((v) => {
