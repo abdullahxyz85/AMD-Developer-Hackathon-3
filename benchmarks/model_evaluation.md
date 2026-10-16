@@ -44,7 +44,7 @@ Accuracy Score (1-5): 4/5
 
 Personalization Score (1-5): 5/5
 
-Notes: Local interference using Ollama. CPU interference on AMD Ryzen 7 5700U
+Notes: Local inference using Ollama. CPU inference on AMD Ryzen 7 5700U
 
 Response:
 
@@ -125,7 +125,7 @@ Selected Model: Llama 3.2 3B
 Reason: Among the tested local models, Llama 3.2 3B delivered the best response latency on AMD Ryzen 7 5700U hardware while still providing high-quality educational explanations.
 
 Strengths:
-  - Fastest interference time
+  - Fastest inference time
   - Good Balance of speed and quality
   - Suitable for local deployment
 
