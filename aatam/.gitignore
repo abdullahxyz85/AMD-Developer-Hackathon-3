@@ -8,6 +8,7 @@ static/videos/*.mp4
 assets/images/
 data/aatam_custom_db/sessions.json
 data/aatam_custom_db/users_shelf.json
+data/aatam_custom_db/games_store.bin
 data/llm_config.json
 generated_manim/explainer_*.py
 static/images/game_*.jpg

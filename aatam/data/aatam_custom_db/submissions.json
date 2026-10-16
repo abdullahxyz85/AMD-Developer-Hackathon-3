@@ -1,0 +1,22 @@
+[
+  {
+    "bgg_id": 900001,
+    "name": "Starship Chrono Pioneers",
+    "year_published": 2026,
+    "min_players": 2,
+    "max_players": 4,
+    "mfg_playtime": 75,
+    "game_weight": 3.2,
+    "categories": "Sci-Fi; Strategy; Space Exploration",
+    "mechanics": "Worker Placement; Engine Building; Deck Drafting",
+    "description": "Pioneer deep wormholes and build temporal Dyson rings in a race to stabilize quantum anomalies.",
+    "image_path": "/static/images/placeholder.jpg",
+    "submitted_by": "grandmaster",
+    "how_i_won": "Rush temporal reactor tech in Epoch 2, bypass warp drives, and monopolize antimatter fuel cells.",
+    "winning_tips": "Never leave your Chrono-engine dry during round resets. Prioritize blue card drafts in cycle 1.",
+    "submitted_at": "2026-10-13T13:41:11.046940",
+    "bayes_avg_rating": 8.0,
+    "avg_rating": 8.0,
+    "num_ratings": 1
+  }
+]
