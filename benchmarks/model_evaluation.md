@@ -1,14 +1,15 @@
 //Documentation of Benchmarks
-Hardware
-CPU: AMD Ryzen 7 5700U with Radeon Graphics
+Use of AMD Technology
+This project was evaluated on AMD Ryzen 7 5700U hardware with integrated AMD Radeon Graphics.
 
-GPU: AMD Radeon Graphics
+Local inference was performed using Ollama, allowing candidate language models to be executed directly on AMD-based consumer hardware. This demonstrates the feasibility of running personalized board-game tutoring models on AMD platforms without requiring dedicated cloud resources.
 
-RAM: 24 GB
-
-Operating System: Windows
-
-Inference Platform: Ollama
+Hardware AMD - Inference Optimization
+  CPU: AMD Ryzen 7 5700U with Radeon Graphics
+  GPU: AMD Radeon Graphics
+  RAM: 24 GB
+  Operating System: Windows
+  Inference Platform: Ollama
 
 Test Objective
 Evaluate local LLMs for personalized board game tutoring.
@@ -21,6 +22,12 @@ Personalization
 Response speed
 Benchmark Prompt
 "Teach Catan to someone who knows Monopoly."
+
+----------------- Model Compatibility -------------
+Model	Context Window	Open Source License
+Llama 3.2 3B	128K	Meta Llama License
+Gemma 3 4B	128K	Gemma License
+Phi-3 Mini	128K	MIT License
 
 Explain:
 
@@ -259,3 +266,12 @@ All benchmarks were performed locally on an AMD Ryzen 7 5700U laptop using CPU-o
 Results may differ when deploying models on dedicated AMD GPU hardware or AMD cloud infrastructure.
 
 Only a limited set of educational prompts was tested, focusing on board-game tutoring scenarios.
+
+The benchmark used default Ollama runtime settings.
+
+Future optimization work may include:
+
+Quantized model variants
+Context window tuning
+GPU acceleration
+AMD cloud deployment
