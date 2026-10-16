@@ -57,23 +57,27 @@ export function TargetPicker({
   games,
   value,
   onChange,
+  disabledNames = [],
 }: {
   games: GameSummary[];
   value: string;
   onChange: (name: string) => void;
+  /** Games the player already knows — greyed out, not selectable as the target. */
+  disabledNames?: string[];
 }) {
   return (
-    <div role="radiogroup" aria-label="Game to learn" className="grid gap-3 sm:grid-cols-3">
+    <div role="radiogroup" aria-label="Game to learn" className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {games.map((g) => {
         const on = g.name === value;
+        const locked = disabledNames.includes(g.name);
         return (
           <button
             key={g.name}
             role="radio"
             aria-checked={on}
-            aria-pressed={on}
-            onClick={() => onChange(g.name)}
-            className="game-box flex flex-col justify-start p-3"
+            aria-disabled={locked || undefined}
+            onClick={() => !locked && onChange(g.name)}
+            className={`game-box flex flex-col justify-start p-3 ${locked ? "cursor-not-allowed opacity-40" : ""}`}
             style={on ? { background: "var(--ink)", color: "var(--paper)" } : undefined}
           >
             <span className="flex items-baseline justify-between">
@@ -83,6 +87,7 @@ export function TargetPicker({
               </span>
             </span>
             <span className="mt-1 line-clamp-2 block text-sm opacity-80">{g.description}</span>
+            {locked && <span className="mt-1 block text-xs italic opacity-90">Already on your shelf</span>}
           </button>
         );
       })}

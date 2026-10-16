@@ -1,0 +1,42 @@
+{
+  "game": "Dominion",
+  "bgg_id": 36218,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Dominion is a deck-building game for 2–4 players. Players earn victory points by purchasing cards; the player with the most victory points when the game ends wins. The game ends immediately when the Province pile (the highest-value victory card) runs out, or when any three supply piles are empty. Ties are broken by who completed fewer turns, then by money tokens in some editions.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "components",
+      "text": "The Supply: basic treasures (Copper worth 1 coin, Silver 2, Gold 3), victory cards (Estate 1 VP, Duchy 3 VP, Province 6 VP), Curse cards (−1 VP), and ten Kingdom piles chosen for the game (each with its own ability). Each player starts with an identical 10-card deck: 7 Coppers and 3 Estates. There is also a Trash zone for cards removed from the game.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "setup",
+      "text": "Lay out the Supply with the basic piles and the chosen 10 Kingdom piles (pick a recommended preset for your first game, e.g. First Game). Give each player their starting deck of 7 Coppers and 3 Estates, have them shuffle it face down, and draw a starting hand of 5 cards. Choose a starting player.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "Every turn has three phases in strict order. (1) Action phase: you may play exactly one Action card from your hand (unless a card grants extra actions); resolve its effects — +Cards (draw), +Actions (play more actions this turn), +Coins, +Buys, or stronger effects like attacking other players or trashing cards. (2) Buy phase: play any number of Treasure cards from your hand, then you may buy one card (unless you gained +Buys); the total value of played treasures must meet or exceed the card's cost, and the bought card goes to your discard pile — never to your hand. You may also set Treasures aside without spending them unless a card requires otherwise. (3) Cleanup phase: discard everything from your hand and everything you played this turn, then draw a new hand of 5 cards. Hands and played cards always discard together, so every card cycles back through your deck.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Deck-building is the core loop: everything you buy (treasures, actions, victories) reshuffles back into your deck, so each purchase is an investment in every future hand. Thin, efficient decks draw their best cards more often — junk (Curses, unneeded Coppers, empty victory cards in early game) dilutes your draws. Economy curves upward: Coppers lead to Silvers, Silvers to Golds, and Golds fund expensive Provinces. Kingdom cards exploit the phase structure — +Actions chain multiple plays in one turn, attacks (e.g. discard or curse-giving cards) hit opponents' decks, and reaction cards respond to attacks. Knowing when to switch from buying economy to buying victory points (usually when Provinces start running low) is the central strategic decision.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "exceptions",
+      "text": "Unspent coins do not carry over to later turns (unless a card explicitly banks them). You may play treasures even when you do not intend to buy, and may decline to buy at all. Extra +Buys let you buy multiple cards, but each card must be paid for separately; +Coins from actions must be spent in the Buy phase only. When your draw deck runs out, shuffle your discard pile to form a new deck; if both are empty you simply draw nothing. Some cards set bonuses for your next turn (e.g. extra actions or coins carried forward), overriding the normal reset — the card text wins over the standard rules. Curse cards must be taken when a card gives you one, even if you do not want them; Curses are useless in play and only clog your deck until trashed.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1 (a turn): you play Village (+1 Card, +2 Actions), then Market (+1 Card, +1 Action, +1 Coin, +1 Buy), drawing 2 cards; in the Buy phase you play 2 Coppers and a Silver for 4 coins and buy a Silver (cost 3, goes to your discard). Cleanup: discard your hand and played cards and draw 5 fresh cards. Example 2 (deck cycle): your deck and discard are both empty mid-turn after playing everything; you shuffle your discard — including the Silver you just bought — and keep drawing from it. Example 3 (greening): Provinces are down to 3 left; you stop buying actions and spend your big treasure turns on Provinces and Duchies, since points, not coins, win the game.",
+      "source": { "title": "Dominion — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/36218/dominion" }
+    }
+  ]
+}

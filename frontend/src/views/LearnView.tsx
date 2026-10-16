@@ -26,7 +26,11 @@ export function LearnView({ initialTarget, initialKnown }: { initialTarget?: str
   const [error, setError] = useState<string | null>(null);
   const [bundle, setBundle] = useState<LessonBundle | null>(null);
 
-  const toggle = (n: string) => setKnown((k) => (k.includes(n) ? k.filter((x) => x !== n) : [...k, n]));
+  const toggle = (n: string) => {
+    setKnown((k) => (k.includes(n) ? k.filter((x) => x !== n) : [...k, n]));
+    // A game you know can't be the one you learn — clear the target if it was picked.
+    if (!known.includes(n) && n === target) setTarget("");
+  };
 
   async function teach() {
     setBusy(true);
@@ -59,7 +63,7 @@ export function LearnView({ initialTarget, initialKnown }: { initialTarget?: str
 
         <div className="space-y-3">
           <h2 className="font-display text-xl font-semibold">Game to learn</h2>
-          <TargetPicker games={targetGames} value={target} onChange={setTarget} />
+          <TargetPicker games={targetGames} value={target} onChange={setTarget} disabledNames={known} />
         </div>
 
         <LevelGoal level={level} goal={goal} onLevel={setLevel} onGoal={setGoal} />

@@ -1,1 +1,10 @@
 .pytest_cache
+__pycache__/
+*.pyc
+.env
+logs/
+server/media/
+frontend/.env
+frontend/node_modules/
+frontend/dist/
+RAG/knowledge/index/

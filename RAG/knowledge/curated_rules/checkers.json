@@ -1,0 +1,42 @@
+{
+  "game": "Checkers",
+  "bgg_id": 2083,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Checkers (American draughts) is a two-player abstract game. You win by capturing all of your opponent's pieces, or by leaving your opponent with no legal move (all remaining pieces are blocked). If neither side can force a win, the game is a draw.",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "components",
+      "text": "A checkerboard of 8×8 squares (only the 32 dark squares are used) and 12 round pieces per player in two contrasting colors (commonly red and white/black).",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "setup",
+      "text": "The board is placed between the players so that each player has a dark square in their bottom-left corner. Each player places their 12 pieces on the dark squares of the three rows closest to them. Darker/first player moves first (in American checkers the red side traditionally moves first).",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "Players alternate single moves. A plain piece moves one square diagonally forward (toward the opponent) into an empty dark square. If an enemy piece stands on an adjacent diagonal square with an empty dark square immediately beyond it, you must jump it: leap over the enemy piece onto the empty square and remove the captured piece from the board. If from the landing square another capture is available, you must continue jumping in the same turn. Captures are mandatory: if any capture exists, you must make one (you may choose which when several are available). Then the turn passes.",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Two mechanics define the game. Forced captures mean every exchange must be calculated: setting up a shot where you sacrifice a piece to recapture two or three of theirs is the main way to gain material. Crowning: a piece that reaches the far row becomes a king (stack a second piece on it or mark it); kings move and capture diagonally in all four directions, both forward and backward, which makes them the strongest units. Positional play — keeping back-row pieces to block enemy crowning, and controlling the long diagonal — decides games between experienced players.",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "exceptions",
+      "text": "A piece that reaches the king row in the middle of a multi-jump must stop and be crowned there; it cannot continue jumping that turn (it may continue on later turns). Kings capture only adjacent enemy pieces with an empty square directly beyond — they do not fly any distance. During a multi-jump, all captured pieces are removed only after the jump sequence is complete in strict play, though removing them one at a time is common casually. You may not jump your own pieces, and you may never move onto occupied squares. If the same position repeats three times or neither side can make progress, the game can be declared a draw.",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1 (forced capture): your piece on square d4 and an enemy on c5 with the dark square b6 empty — you must jump c5 and land on b6, removing the enemy piece. Example 2 (multi-jump): after landing on b6 another enemy sits on c7 with a8 empty, so your turn continues: jump c7 to a8, capturing two pieces in one turn. Example 3 (crowning): your plain piece advances to the last row on your side of the move and is crowned; from then on it may also move and jump backward.",
+      "source": { "title": "Checkers — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2083/checkers" }
+    }
+  ]
+}

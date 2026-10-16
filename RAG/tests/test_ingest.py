@@ -43,11 +43,11 @@ def test_expected_games_and_counts(chunk_store):
                       "Uno", "Poker", "Risk", "Scrabble", "Checkers"}
     games = {c["game"] for c in chunk_store.values()}
     assert games == expected_games
-    # Layer B curated rules: 7 sections x 4 games
+    # Layer B curated rules: 7 sections x 10 games
     curated = [c for c in chunk_store.values() if c["layer"] == "curated_rules"]
-    assert len(curated) == 28
+    assert len(curated) == 7 * len(expected_games)
     curated_games = {c["game"] for c in curated}
-    assert curated_games == {"Catan", "Monopoly", "Chess", "Ticket to Ride"}
+    assert curated_games == expected_games
 
 
 def test_primary_mechanic_coverage(chunk_store):

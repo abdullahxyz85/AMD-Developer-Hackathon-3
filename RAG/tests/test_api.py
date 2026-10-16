@@ -31,7 +31,7 @@ def test_health(client):
     body = r.json()
     assert body["status"] == "ok"
     assert body["games"] == 10
-    assert body["chunks"] == 102
+    assert body["chunks"] == 144
 
 
 def test_root_lists_endpoints(client):
@@ -46,11 +46,12 @@ def test_list_games(client):
     games = {g["name"]: g for g in r.json()}
     assert set(games) == {"Catan", "Monopoly", "Chess", "Ticket to Ride",
                           "Dominion", "Uno", "Poker", "Risk", "Scrabble", "Checkers"}
-    # curated games flagged, with BGG citations
+    # all ten games have curated rules, with BGG citations
     assert games["Catan"]["has_curated_rules"] is True
     assert games["Catan"]["bgg_id"] == 13
     assert games["Catan"]["bgg_url"] == "https://boardgamegeek.com/boardgame/13/catan"
-    assert games["Uno"]["has_curated_rules"] is False
+    assert games["Uno"]["has_curated_rules"] is True
+    assert games["Uno"]["bgg_id"] == 2223
 
 
 # ---------- /rag/retrieve: happy paths ----------

@@ -50,8 +50,10 @@ export const GAMES: GameRecord[] = Object.entries(data.games).map(([name, g]) =>
 export const MECHANIC_LABELS: Record<string, string> = data.mechanic_labels;
 
 // Curated split
-export const TARGET_GAMES = ["Catan", "Ticket to Ride", "Dominion", "Carcassonne", "Pandemic", "Splendor", "Terraforming Mars"];
-export const KNOWN_GAMES = ["Chess", "Monopoly", "Uno", "Poker", "Checkers", "Risk", "Scrabble", "Codenames", "7 Wonders", "Wingspan"];
+// Any game can be selected as "known" or as the target to learn
+// (the UI greys out targets the player already knows).
+export const TARGET_GAMES = GAMES.map((g) => g.name);
+export const KNOWN_GAMES = GAMES.map((g) => g.name);
 
 export function mechanicLabel(tag: string): string {
   return MECHANIC_LABELS[tag] ?? tag.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

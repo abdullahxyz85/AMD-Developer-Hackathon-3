@@ -1,0 +1,42 @@
+{
+  "game": "Uno",
+  "bgg_id": 2223,
+  "version": 1,
+  "sections": [
+    {
+      "section": "objective",
+      "text": "Uno is a shedding game for 2–10 players. The winner of a round is the first player to play all cards from their hand. The winner scores points for the cards left in the other players' hands: number cards score their face value, Skip/Reverse/Draw Two score 20 each, and Wild/Wild Draw Four score 50 each. The first player to reach 500 points across rounds wins the game.",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "components",
+      "text": "A deck of 108 cards in four colors (red, yellow, green, blue). Per color: one 0 card, two copies of each number 1–9, two Skip, two Reverse, and two Draw Two cards (25 cards per color, 100 total), plus 4 Wild cards and 4 Wild Draw Four cards.",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "setup",
+      "text": "Shuffle the deck and deal 7 cards to each player. Stack the remaining cards face down as the draw pile. Flip the top card face up to start the discard pile. If a Wild Draw Four is flipped, return it to the deck and reshuffle and flip again; if an action card is flipped, it applies to the first player as normal. Choose a starting player and direction (clockwise by default).",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "turn_structure",
+      "text": "On your turn you must play one card from your hand onto the discard pile that matches the top card by color, by number, or by symbol (action cards match each other). Wilds may be played on anything and let you name the color that continues play. If you have no playable card, draw one card from the draw pile; in the official rule you may immediately play that drawn card if it is playable, otherwise your turn ends. After playing an action card its effect applies to the next player in turn (skip, reverse direction, or draw and lose their turn). Play then passes on.",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "core_mechanics",
+      "text": "Color/number matching is the core loop: keep a card playable by holding colors in common with your hand and the discard. Action cards disrupt: Skip passes over the next player, Reverse flips the direction of play (with exactly 2 players it acts as a Skip), Draw Two forces the next player to take 2 cards and lose their turn. Wild names a new color; Wild Draw Four additionally makes the next player draw 4 and lose their turn, and may only legally be played when you hold no card matching the current color. When you play your second-to-last card you must call \"Uno\".",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "exceptions",
+      "text": "If you forget to call \"Uno\" with one card left and are caught before the next player begins their turn, you draw 2 penalty cards. A Wild Draw Four played while you hold a card of the current color is illegal: a challenged player who is caught draws 4 instead of the challenger, but an unsuccessful challenge makes the challenger draw 6. Stacking Draw Two/Wild Draw Four on each other is a common house rule but is not in the official rules. If the draw pile runs out, reshuffle the discard pile (except the top card) to form a new one. Scoring counts cards left in hands at the moment someone goes out.",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    },
+    {
+      "section": "examples",
+      "text": "Example 1: the discard shows a red 7. You may play a red 3, a blue 7, or any Wild — but not a green 3. Example 2: you play a red Draw Two; the next player draws 2 cards and their turn is skipped, so play resumes with the following player in the current direction. Example 3: you are down to one wild card and must call \"Uno\" as you play it; if the pile top is a green 5 you play the Wild, name blue, and blue becomes the color to match.",
+      "source": { "title": "Uno — BoardGameGeek", "url": "https://boardgamegeek.com/boardgame/2223/uno" }
+    }
+  ]
+}

@@ -20,7 +20,17 @@ export function CompareView() {
   const [err, setErr] = useState<string | null>(null);
   const [res, setRes] = useState<[LessonBundle, LessonBundle] | null>(null);
 
-  const tog = (set: typeof setKnownA) => (n: string) => set((k) => (k.includes(n) ? k.filter((x) => x !== n) : [...k, n]));
+  const makeToggle = (list: string[], set: (names: string[]) => void) => (n: string) => {
+    if (list.includes(n)) {
+      set(list.filter((x) => x !== n));
+    } else {
+      set([...list, n]);
+      // A game either profile knows can't be the one they learn.
+      if (n === target) setTarget("");
+    }
+  };
+  const togA = makeToggle(knownA, setKnownA);
+  const togB = makeToggle(knownB, setKnownB);
 
   async function run() {
     setBusy(true);
@@ -50,15 +60,20 @@ export function CompareView() {
         </p>
       </header>
 
-      <TargetPicker games={targetGames} value={target} onChange={setTarget} />
+      <TargetPicker
+        games={targetGames}
+        value={target}
+        onChange={setTarget}
+        disabledNames={[...new Set([...knownA, ...knownB])]}
+      />
 
       <div className="grid gap-6 md:grid-cols-2">
-        {([[A, knownA, setKnownA], [B, knownB, setKnownB]] as const).map(([p, k, set]) => (
+        {([[A, knownA], [B, knownB]] as const).map(([p, k]) => (
           <div key={p.name} className="panel p-4" style={{ borderTop: `8px solid ${p.color}` }}>
             <h2 className="mb-3 flex items-center gap-2 font-display text-xl font-semibold">
               <Meeple color={p.color} size={24} /> {p.name} knows
             </h2>
-            <KnownGamesPicker games={knownGames} selected={k} onToggle={tog(set)} accent={p.color} accentText={p.text} compact />
+            <KnownGamesPicker games={knownGames} selected={k} onToggle={p.name === A.name ? togA : togB} accent={p.color} accentText={p.text} compact />
           </div>
         ))}
       </div>
