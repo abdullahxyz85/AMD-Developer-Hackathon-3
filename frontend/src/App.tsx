@@ -8,9 +8,8 @@ import { LearnView } from "./views/LearnView";
 import { PicksView } from "./views/PicksView";
 import { ShelfView } from "./views/ShelfView";
 import { StudioView } from "./views/StudioView";
-import { SubmitView } from "./views/SubmitView";
 
-export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit";
+export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio";
 
 interface ViewItem {
   id: ViewId;
@@ -25,7 +24,6 @@ const VIEW_ITEMS: ViewItem[] = [
   { id: "picks", label: "Picks", icon: "✨" },
   { id: "shelf", label: "My shelf", icon: "📚" },
   { id: "studio", label: "Videos", icon: "🎬" },
-  { id: "submit", label: "Submit", icon: "🏆" },
 ];
 
 function useHashView(): [ViewId, (v: ViewId) => void] {
@@ -83,8 +81,6 @@ export default function App() {
         return <ShelfView onTeachGame={handleTeachGame} />;
       case "studio":
         return <StudioView />;
-      case "submit":
-        return <SubmitView />;
       default:
         return <LearnView initialTarget={targetGameToTeach} initialKnown={knownToTeach} />;
     }

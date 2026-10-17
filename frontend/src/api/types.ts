@@ -52,7 +52,6 @@ export interface GameSummary {
   winning_tips?: string;
   designers?: string;
   publishers?: string;
-  submitted_by?: string;
 }
 
 export interface GamesResponse {
@@ -76,23 +75,6 @@ export interface UserShelfProfile {
   display_name: string;
   bio: string;
   plays: PlayedGame[];
-}
-
-export interface CommunitySubmission {
-  id: string;
-  name: string;
-  year_published: number;
-  min_players: number;
-  max_players: number;
-  mfg_playtime: number;
-  game_weight: number;
-  categories: string;
-  mechanics: string;
-  description: string;
-  how_i_won?: string;
-  winning_tips?: string;
-  submitted_by: string;
-  date_added: string;
 }
 
 // ── RAG service ──────────────────────────────────────────────────────────

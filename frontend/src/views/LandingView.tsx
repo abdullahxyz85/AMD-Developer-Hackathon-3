@@ -424,7 +424,6 @@ function Footer({ link }: { link: LinkFn }) {
     ["picks", "Picks for you"],
     ["shelf", "My shelf"],
     ["studio", "Videos"],
-    ["submit", "Submit a game"],
   ];
   return (
     <footer className="bg-surface">
