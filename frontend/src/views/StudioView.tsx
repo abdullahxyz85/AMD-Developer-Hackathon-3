@@ -214,7 +214,7 @@ export function StudioView() {
           {/* Visual Stage Player */}
           <div className="pt-2">
             <div className="text-xs font-bold text-ink-soft mb-2">Stage Output:</div>
-            {showVisual && <VisualPlayer plan={samplePlan} />}
+            {showVisual && <VisualPlayer plan={samplePlan} game={selectedGame} />}
           </div>
         </div>
 

@@ -94,7 +94,7 @@ export function LearnView({ initialTarget, initialKnown }: { initialTarget?: str
               </div>
             </div>
             <aside className="space-y-5 lg:sticky lg:top-6 lg:self-start">
-              <VisualPlayer plan={bundle.lesson.animation_plan} />
+              <VisualPlayer plan={bundle.lesson.animation_plan} game={bundle.recommendation.data.target_game} />
               <Comparisons lesson={bundle.lesson} />
               <Sources sources={bundle.lesson.sources} />
             </aside>
