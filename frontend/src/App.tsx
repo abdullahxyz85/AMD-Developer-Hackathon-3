@@ -50,7 +50,7 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = view === "home" ? "Board-Game Tutor" : `${currentItem.label} | Board-Game Tutor`;
+    document.title = view === "home" ? "Aatam — Your Board-Game Tutor" : `${currentItem.label} | Aatam`;
   }, [view, currentItem.label]);
 
   function handleTeachGame(name: string, known?: string[]) {
@@ -94,8 +94,8 @@ export default function App() {
             <a href="#/home" onClick={(e) => { e.preventDefault(); go("home"); }} className="flex items-center gap-2.5 px-5 py-4 md:py-6 border-b border-sunk md:border-b-0">
               <Meeple color="var(--red)" size={32} />
               <div>
-                <span className="font-display text-xl font-extrabold leading-none block">Board-Game</span>
-                <span className="font-display text-xs font-bold text-red tracking-wider uppercase">Tutor & Wiki</span>
+                <span className="font-display text-xl font-extrabold leading-none block">Aatam</span>
+                <span className="mt-0.5 block font-display text-[11px] font-bold uppercase leading-tight tracking-wider text-red">Your board-game tutor</span>
               </div>
             </a>
 

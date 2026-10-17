@@ -56,7 +56,10 @@ function TopBar({ link }: { link: LinkFn }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
         <a {...link("home")} className="flex items-center gap-2.5">
           <Meeple color="var(--red)" size={30} />
-          <span className="font-display text-lg font-extrabold leading-none">Board-Game Tutor</span>
+          <span className="leading-none">
+            <span className="block font-display text-lg font-extrabold">Aatam</span>
+            <span className="block font-display text-[11px] font-bold uppercase tracking-wider text-red">Your board-game tutor</span>
+          </span>
         </a>
         <nav aria-label="Page" className="flex items-center gap-1 sm:gap-5">
           <a href="#how" onClick={scrollTo("how")} className="hidden font-display font-semibold hover:underline sm:inline">How it works</a>
@@ -431,7 +434,7 @@ function Footer({ link }: { link: LinkFn }) {
         <div className="space-y-2">
           <span className="flex items-center gap-2">
             <Meeple color="var(--red)" size={24} />
-            <span className="font-display font-extrabold">Board-Game Tutor</span>
+            <span className="font-display font-extrabold">Aatam — Your board-game tutor</span>
           </span>
           <p className="max-w-xs text-sm text-ink-soft">Built for the AMD Developer Hackathon Act III.</p>
           <a href={REPO_URL} target="_blank" rel="noreferrer" className="inline-block text-sm font-bold underline decoration-2 underline-offset-2">Source on GitHub</a>

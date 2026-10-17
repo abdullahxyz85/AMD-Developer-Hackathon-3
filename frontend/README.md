@@ -1,6 +1,6 @@
-# Board-Game Tutor — Frontend
+# Aatam — Frontend
 
-React + TypeScript + Tailwind dashboard for the Personalized AI Board-Game Tutor (AMD Developer Hackathon Act III).
+React + TypeScript + Tailwind dashboard for Aatam, the personalized AI board-game tutor (AMD Developer Hackathon Act III).
 
 It deploys and works with **no backend at all**: any service that isn't configured (or doesn't respond) is filled in by built-in demo data, so the hosted link never breaks during judging. Point it at the real services and every response is labelled **Live** or **Demo** in the UI.
 
