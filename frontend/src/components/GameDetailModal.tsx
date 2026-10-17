@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import type { GameSummary } from "../api/types";
 import { getGame } from "../demo/catalog";
 import { Meeple } from "./ui";
 
 interface Props {
   gameName: string | null;
   onClose: () => void;
-  onLogPlay: (game: GameSummary) => void;
   onTeachMe: (gameName: string) => void;
 }
 
@@ -20,7 +18,7 @@ const CHAPTERS = [
   { label: "Win", time: 210 },
 ];
 
-export function GameDetailModal({ gameName, onClose, onLogPlay, onTeachMe }: Props) {
+export function GameDetailModal({ gameName, onClose, onTeachMe }: Props) {
   const [activeChapter, setActiveChapter] = useState(0);
 
   useEffect(() => {
@@ -86,12 +84,6 @@ export function GameDetailModal({ gameName, onClose, onLogPlay, onTeachMe }: Pro
               className="btn btn-primary text-xs"
             >
               🎓 Teach Me This Game
-            </button>
-            <button
-              onClick={() => onLogPlay(rec as unknown as GameSummary)}
-              className="btn text-xs"
-            >
-              + Log Play
             </button>
             <button
               onClick={onClose}

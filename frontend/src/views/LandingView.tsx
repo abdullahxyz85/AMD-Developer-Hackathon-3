@@ -424,8 +424,6 @@ function Footer({ link }: { link: LinkFn }) {
     ["learn", "Learn a game"],
     ["compare", "Compare players"],
     ["games", "Game shelf"],
-    ["picks", "Picks for you"],
-    ["shelf", "My shelf"],
     ["studio", "Videos"],
   ];
   return (

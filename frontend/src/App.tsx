@@ -5,11 +5,9 @@ import { CompareView } from "./views/CompareView";
 import { GamesView } from "./views/GamesView";
 import { LandingView } from "./views/LandingView";
 import { LearnView } from "./views/LearnView";
-import { PicksView } from "./views/PicksView";
-import { ShelfView } from "./views/ShelfView";
 import { StudioView } from "./views/StudioView";
 
-export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio";
+export type ViewId = "home" | "learn" | "compare" | "games" | "studio";
 
 interface ViewItem {
   id: ViewId;
@@ -21,8 +19,6 @@ const VIEW_ITEMS: ViewItem[] = [
   { id: "learn", label: "Learn a game", icon: "🎓" },
   { id: "compare", label: "Compare players", icon: "⚖️" },
   { id: "games", label: "Game shelf", icon: "🎲" },
-  { id: "picks", label: "Picks", icon: "✨" },
-  { id: "shelf", label: "My shelf", icon: "📚" },
   { id: "studio", label: "Videos", icon: "🎬" },
 ];
 
@@ -75,10 +71,6 @@ export default function App() {
         return <CompareView />;
       case "games":
         return <GamesView onTeachGame={handleTeachGame} />;
-      case "picks":
-        return <PicksView onTeachGame={handleTeachGame} />;
-      case "shelf":
-        return <ShelfView onTeachGame={handleTeachGame} />;
       case "studio":
         return <StudioView />;
       default:
