@@ -81,6 +81,7 @@ def venv_python() -> Path:
     if os.environ.get("PYTHON_BIN"):
         candidates.append(Path(os.environ["PYTHON_BIN"]))
     candidates.append(ROOT / ".venv" / "bin" / "python")
+    candidates.insert(1, ROOT / ".venv" / "Scripts" / "python.exe")
     pyenv_root = Path(os.environ.get("PYENV_ROOT", "~/.pyenv")).expanduser()
     candidates.append(pyenv_root / "versions" / VENV_NAME / "bin" / "python")
     candidates.append(Path(sys.executable))
@@ -190,20 +191,22 @@ def stop(procs: dict[str, subprocess.Popen]) -> None:
 
 
 def start_frontend() -> subprocess.Popen | None:
-    if not shutil.which("node") or not shutil.which("npm"):
+    npm = shutil.which("npm.cmd" if os.name == "nt" else "npm")
+    if not shutil.which("node") or not npm:
         warn("Node/npm not found — skipping frontend. Install Node 20+ to use the UI.")
         return None
     frontend = ROOT / "frontend"
     if not (frontend / "node_modules").exists():
         log("Installing frontend dependencies (npm install)...")
-        subprocess.run(["npm", "install"], cwd=frontend, check=True)
+        subprocess.run([npm, "install"], cwd=frontend, check=True)
     env = dict(os.environ,
                VITE_API_URL="http://localhost:8002",
                VITE_RECOMMEND_URL="http://localhost:8001",
-               VITE_RAG_URL="http://localhost:8100")
+               VITE_RAG_URL="http://localhost:8100",
+               VITE_DEMO_FALLBACK="false")
     log_file = open(LOG_DIR / "frontend.log", "w")
     log("Starting frontend dev server on :5173  (logs/frontend.log)")
-    return subprocess.Popen(["npm", "run", "dev"], cwd=frontend, env=env,
+    return subprocess.Popen([npm, "run", "dev", "--", "--host", "127.0.0.1", "--port", "5173", "--strictPort"], cwd=frontend, env=env,
                             stdout=log_file, stderr=subprocess.STDOUT)
 
 
