@@ -1,5 +1,4 @@
-import { useEffect, useState, useSyncExternalStore } from "react";
-import { getEndpoints, onEndpointsChange } from "./api/config";
+import { useEffect, useState } from "react";
 import { CatalogProvider } from "./catalog";
 import { Meeple } from "./components/ui";
 import { CompareView } from "./views/CompareView";
@@ -10,9 +9,8 @@ import { PicksView } from "./views/PicksView";
 import { ShelfView } from "./views/ShelfView";
 import { StudioView } from "./views/StudioView";
 import { SubmitView } from "./views/SubmitView";
-import { SystemView } from "./views/SystemView";
 
-export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit" | "system";
+export type ViewId = "home" | "learn" | "compare" | "games" | "picks" | "shelf" | "studio" | "submit";
 
 interface ViewItem {
   id: ViewId;
@@ -28,7 +26,6 @@ const VIEW_ITEMS: ViewItem[] = [
   { id: "shelf", label: "My shelf", icon: "📚" },
   { id: "studio", label: "Videos", icon: "🎬" },
   { id: "submit", label: "Submit", icon: "🏆" },
-  { id: "system", label: "System & AI", icon: "⚙️" },
 ];
 
 function useHashView(): [ViewId, (v: ViewId) => void] {
@@ -46,16 +43,8 @@ function useHashView(): [ViewId, (v: ViewId) => void] {
   return [view, (v) => { window.location.hash = `/${v}`; }];
 }
 
-function useConnectedCount() {
-  return useSyncExternalStore(
-    (cb) => { const off = onEndpointsChange(cb); return () => { off(); }; },
-    () => Object.values(getEndpoints()).filter(Boolean).length,
-  );
-}
-
 export default function App() {
   const [view, go] = useHashView();
-  const connected = useConnectedCount();
   const [targetGameToTeach, setTargetGameToTeach] = useState<string>("Catan");
   const [knownToTeach, setKnownToTeach] = useState<string[] | undefined>(undefined);
 
@@ -96,8 +85,6 @@ export default function App() {
         return <StudioView />;
       case "submit":
         return <SubmitView />;
-      case "system":
-        return <SystemView />;
       default:
         return <LearnView initialTarget={targetGameToTeach} initialKnown={knownToTeach} />;
     }
@@ -140,18 +127,7 @@ export default function App() {
             </nav>
           </div>
 
-          <div className="hidden px-5 pb-6 text-sm md:block border-t border-sunk pt-4">
-            <a href="#/system" onClick={(e) => { e.preventDefault(); go("system"); }} className="block rounded-md border-2 border-ink p-3 hover:bg-sunk transition">
-              <span className="font-bold flex items-center justify-between">
-                <span>{connected === 0 ? "Demo mode" : `${connected} / 3 Connected`}</span>
-                <span className="h-2 w-2 rounded-full" style={{ background: connected > 0 ? "var(--green)" : "var(--yellow)" }} />
-              </span>
-              <span className="mt-1 block text-xs text-ink-soft">
-                {connected === 0 ? "Using curated catalog data. Configure AMD inference." : "Live inference active."}
-              </span>
-            </a>
-            <p className="mt-4 text-[11px] text-ink-soft">Built for the AMD Developer Hackathon Act III.</p>
-          </div>
+          <p className="hidden px-5 pb-6 text-[11px] text-ink-soft md:block">Built for the AMD Developer Hackathon Act III.</p>
         </aside>
 
         <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 md:py-10">

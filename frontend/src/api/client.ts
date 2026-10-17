@@ -16,31 +16,6 @@ import { demoRecommend } from "../demo/recommender";
 import { demoRetrieve } from "../demo/rag";
 import { composeAnswer, composeLesson } from "../demo/lesson";
 
-// ── Request log (feeds the System page) ─────────────────────────────────
-export interface LogEntry {
-  at: number;
-  service: keyof Endpoints;
-  path: string;
-  ok: boolean;
-  status: number | null;
-  ms: number;
-  origin: "live" | "demo";
-  note?: string;
-}
-
-const log: LogEntry[] = [];
-const logListeners = new Set<() => void>();
-export const getLog = () => log;
-export function onLog(fn: () => void) {
-  logListeners.add(fn);
-  return () => logListeners.delete(fn);
-}
-function record(e: LogEntry) {
-  log.unshift(e);
-  if (log.length > 200) log.pop();
-  logListeners.forEach((l) => l());
-}
-
 export class ApiError extends Error {
   status: number | null;
   constructor(message: string, status: number | null) {
@@ -67,17 +42,14 @@ async function http<T>(service: keyof Endpoints, path: string, init?: RequestIni
     const ms = performance.now() - t0;
     if (!res.ok) {
       const detail = body && typeof body.detail === "string" ? body.detail : `HTTP ${res.status}`;
-      record({ at: Date.now(), service, path, ok: false, status, ms, origin: "live", note: detail });
-      throw new ApiError(detail, status);
+      throw new ApiError(`${service} ${path}: ${detail}`, status);
     }
-    record({ at: Date.now(), service, path, ok: true, status, ms, origin: "live" });
     return { data: body as T, ms };
   } catch (e) {
     if (e instanceof ApiError) throw e;
-    const ms = performance.now() - t0;
     const msg = ctrl.signal.aborted ? `timed out after ${Math.round(timeout / 1000)}s` : "unreachable (network or CORS)";
-    record({ at: Date.now(), service, path, ok: false, status, ms, origin: "live", note: msg });
-    throw new ApiError(msg, status);
+    // Name the failing service so the error points at the right server, e.g. "recommend /recommend (http://localhost:8001): unreachable".
+    throw new ApiError(`${service} ${path} (${base}): ${msg}`, status);
   } finally {
     clearTimeout(timer);
   }
@@ -88,7 +60,6 @@ const post = (body: unknown): RequestInit => ({ method: "POST", body: JSON.strin
 /** Try the live service; fall back to the offline demo implementation. */
 async function withFallback<T>(
   service: keyof Endpoints,
-  path: string,
   live: () => Promise<{ data: T; ms: number }>,
   demo: () => T,
 ): Promise<Result<T>> {
@@ -102,25 +73,23 @@ async function withFallback<T>(
       // A 4xx from a live service is a real answer (e.g. unknown game) — surface it.
       if (e instanceof ApiError && e.status && e.status >= 400 && e.status < 500) throw e;
       if (!DEMO_FALLBACK) throw e;
-      reason = `${service} ${(e as Error).message}`;
+      reason = (e as Error).message;
     }
   }
   const t0 = performance.now();
   const data = demo();
   const ms = performance.now() - t0;
-  record({ at: Date.now(), service, path, ok: true, status: null, ms, origin: "demo", note: reason });
   return { data, origin: "demo", ms, fallbackReason: reason };
 }
 
 // ── Public API ──────────────────────────────────────────────────────────
 export function fetchGames(): Promise<Result<GamesResponse>> {
-  return withFallback("recommend", "/games", () => http<GamesResponse>("recommend", "/games", undefined, 8000), demoGamesResponse);
+  return withFallback("recommend", () => http<GamesResponse>("recommend", "/games", undefined, 8000), demoGamesResponse);
 }
 
 export function recommend(known_games: string[], target_game: string): Promise<Result<RecommendationResponse>> {
   return withFallback(
     "recommend",
-    "/recommend",
     () => http<RecommendationResponse>("recommend", "/recommend", post({ known_games, target_game })),
     () => demoRecommend(known_games, target_game),
   );
@@ -129,7 +98,6 @@ export function recommend(known_games: string[], target_game: string): Promise<R
 export function retrieve(game: string, query: string, focus_mechanics: string[] = [], k = 8): Promise<Result<RetrievalResponse>> {
   return withFallback(
     "rag",
-    "/rag/retrieve",
     () => http<RetrievalResponse>("rag", "/rag/retrieve", post({ game, query, focus_mechanics, k })),
     () => demoRetrieve(game, query, focus_mechanics, k),
   );
@@ -171,7 +139,7 @@ export async function generateLesson(req: LessonRequest): Promise<LessonBundle> 
       };
     } catch (e) {
       if (!DEMO_FALLBACK) throw e;
-      reason = `api ${(e as Error).message}`;
+      reason = (e as Error).message;
     }
   }
 
@@ -243,19 +211,4 @@ export function resolveUrl(u: string): string {
   if (/^https?:\/\//.test(u)) return u;
   const base = getEndpoints().api;
   return base ? base + (u.startsWith("/") ? u : "/" + u) : u;
-}
-
-/** Health probe for the System page. */
-export async function probe(service: keyof Endpoints): Promise<{ ok: boolean; ms: number; detail: string }> {
-  const path = service === "rag" ? "/health" : service === "recommend" ? "/games" : "/health";
-  try {
-    const r = await http<Record<string, unknown>>(service, path, undefined, 8000);
-    let detail = "responding";
-    if (service === "rag" && r.data) detail = `${r.data.chunks ?? "?"} chunks, ${r.data.games ?? "?"} games, ${r.data.embed_model ?? "keyword"}`;
-    if (service === "recommend" && r.data) detail = `${(r.data.supported_games as unknown[] | undefined)?.length ?? "?"} games in catalog`;
-    if (service === "api" && r.data?.model) detail = `model ${String(r.data.model)}`;
-    return { ok: true, ms: r.ms, detail };
-  } catch (e) {
-    return { ok: false, ms: 0, detail: (e as Error).message };
-  }
 }

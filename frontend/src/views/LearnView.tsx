@@ -74,7 +74,7 @@ export function LearnView({ initialTarget, initialKnown }: { initialTarget?: str
           </button>
           {!ready && <span className="text-sm text-ink-soft">Choose at least one game you know.</span>}
         </div>
-        {error && <Notice tone="error">The lesson couldn't be built: {error}. Check the service addresses on the System page.</Notice>}
+        {error && <Notice tone="error">The lesson couldn't be built: {error}. Check that the backend services are running and the addresses in frontend/.env are right.</Notice>}
       </section>
 
       {bundle && (
