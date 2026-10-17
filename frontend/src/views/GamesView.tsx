@@ -2,9 +2,7 @@ import { useMemo, useState } from "react";
 import { useCatalog } from "../catalog";
 import { allMechanics, getGame } from "../demo/catalog";
 import { OriginBadge } from "../components/ui";
-import type { GameSummary } from "../api/types";
 import { GameDetailModal } from "../components/GameDetailModal";
-import { LogPlayModal } from "../components/LogPlayModal";
 
 interface Props {
   onTeachGame?: (name: string) => void;
@@ -20,7 +18,6 @@ export function GamesView({ onTeachGame }: Props) {
 
   // Modals
   const [detailGame, setDetailGame] = useState<string | null>(null);
-  const [logGame, setLogGame] = useState<GameSummary | null>(null);
 
   // Selected game for matrix mode
   const [sel, setSel] = useState<string | null>(null);
@@ -292,16 +289,6 @@ export function GamesView({ onTeachGame }: Props) {
                     >
                       Details & Video
                     </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setLogGame(g);
-                      }}
-                      className="p-1 rounded-full border border-ink bg-surface hover:bg-sunk text-ink font-bold text-xs"
-                      title="Log Play"
-                    >
-                      +
-                    </button>
                   </div>
                 </div>
               );
@@ -432,18 +419,10 @@ export function GamesView({ onTeachGame }: Props) {
         <GameDetailModal
           gameName={detailGame}
           onClose={() => setDetailGame(null)}
-          onLogPlay={(g) => setLogGame(g)}
           onTeachMe={(target) => {
             setDetailGame(null);
             onTeachGame?.(target);
           }}
-        />
-      )}
-
-      {logGame && (
-        <LogPlayModal
-          game={logGame}
-          onClose={() => setLogGame(null)}
         />
       )}
     </div>

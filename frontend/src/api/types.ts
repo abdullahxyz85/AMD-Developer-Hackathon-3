@@ -61,22 +61,6 @@ export interface GamesResponse {
   known_games: string[];
 }
 
-// ── Shelf, Community & AI types ──────────────────────────────────────────
-export interface PlayedGame {
-  bgg_id?: number;
-  name: string;
-  rating: number; // 1.0 - 10.0
-  notes: string;
-  date_logged: string;
-}
-
-export interface UserShelfProfile {
-  username: string;
-  display_name: string;
-  bio: string;
-  plays: PlayedGame[];
-}
-
 // ── RAG service ──────────────────────────────────────────────────────────
 export interface SourceRef {
   title: string;
