@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { fetchGames } from "./api/client";
-import { onEndpointsChange } from "./api/config";
 import type { DataOrigin, GameSummary, GamesResponse } from "./api/types";
 import { demoGamesResponse } from "./demo/catalog";
 
@@ -31,15 +30,9 @@ const Ctx = createContext<CatalogState>(build(demoGamesResponse(), "demo"));
 export function CatalogProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState(() => build(demoGamesResponse(), "demo"));
   useEffect(() => {
-    const load = () =>
-      fetchGames()
-        .then((r) => setState(build(r.data, r.origin)))
-        .catch(() => setState(build(demoGamesResponse(), "demo")));
-    load();
-    const off = onEndpointsChange(load);
-    return () => {
-      off();
-    };
+    fetchGames()
+      .then((r) => setState(build(r.data, r.origin)))
+      .catch(() => setState(build(demoGamesResponse(), "demo")));
   }, []);
   return <Ctx.Provider value={state}>{children}</Ctx.Provider>;
 }

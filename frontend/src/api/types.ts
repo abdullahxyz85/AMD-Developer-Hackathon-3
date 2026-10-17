@@ -95,16 +95,6 @@ export interface CommunitySubmission {
   date_added: string;
 }
 
-export interface AIConfig {
-  provider: "amd" | "zai" | "ollama" | "custom";
-  apiKey: string;
-  serverUrl: string;
-  modelName: string;
-  temperature: number;
-  maxTokens: number;
-  enabled: boolean;
-}
-
 // ── RAG service ──────────────────────────────────────────────────────────
 export interface SourceRef {
   title: string;

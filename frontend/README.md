@@ -11,7 +11,6 @@ It deploys and works with **no backend at all**: any service that isn't configur
 | **Learn a game** | Pick known games + a target game → personalized lesson with citations, step-through visual, familiar-game "bridges", sources, quiz, follow-up questions |
 | **Compare players** | Player A vs Player B learning the same game, plus a "What changed" table — the personalization proof for the demo |
 | **Game shelf** | Game × mechanic matrix from `games.json`; click a game for its rule cards |
-| **System** | Service addresses (editable at runtime), health checks, latency (median / 95th pct.), request log |
 
 ## Quick start
 
@@ -37,7 +36,7 @@ VITE_DEMO_FALLBACK=true                    # set false to surface errors instead
 VITE_TIMEOUT_MS=60000
 ```
 
-`VITE_*` values are baked in at build time. To change them on an already-deployed site, open **System**, edit the addresses and save — this is stored in that browser only.
+`VITE_*` values are baked in at build time: restart `npm run dev` (or rebuild) after changing them. When a call fails, the error names the service, path and address, e.g. `recommend /recommend (http://localhost:8001): unreachable (network or CORS)`.
 
 Services must allow the site's origin via CORS. The RAG and recommendation services already allow all origins.
 
@@ -75,7 +74,7 @@ All types live in `src/api/types.ts` — they mirror `recommendation/schemas.py`
 
 // POST /visual   body: animation_plan  →  { "id": "abc", "status": "queued" }
 // GET  /visual/{id}                    →  { "id": "abc", "status": "done", "video_url": "/media/abc.mp4" }
-// GET  /health                         →  { "status": "ok", "model": "..." }   (shown on System page)
+// GET  /health                         →  { "status": "ok", "model": "..." }
 ```
 
 Missing or malformed fields are defaulted, never crash the page.
@@ -114,7 +113,7 @@ src/
   demo/       offline versions: catalog, recommender (exact port of recommendation/), keyword RAG, lesson + quiz
   data/       games.json — snapshot of recommendation/data/games.json
   components/ Lesson, VisualPlayer, ProfilePicker, ui
-  views/      LearnView, CompareView, GamesView, SystemView
+  views/      LearnView, CompareView, GamesView
 ```
 
 `src/data/games.json` is a copy. After editing the catalog, refresh it:
@@ -127,4 +126,3 @@ cp ../recommendation/data/games.json src/data/games.json
 
 - Demo-mode lessons only contain what's in `games.json`; setup rules aren't there yet, so the lesson says so and points to the rulebook.
 - Quiz questions in demo mode are a fixed set per game (3 each), written from `games.json`.
-- Latency on the System page is measured in the browser and includes network time.

@@ -1,9 +1,8 @@
-import type { AIConfig, CommunitySubmission, PlayedGame, UserShelfProfile } from "./types";
+import type { CommunitySubmission, PlayedGame, UserShelfProfile } from "./types";
 import { getGame } from "../demo/catalog";
 
 const SHELF_KEY = "bgt_user_shelf";
 const SUBMISSIONS_KEY = "bgt_community_submissions";
-const AI_CONFIG_KEY = "bgt_ai_config";
 
 const DEFAULT_SHELF: UserShelfProfile = {
   username: "PlayerOne",
@@ -75,16 +74,6 @@ const DEFAULT_SUBMISSIONS: CommunitySubmission[] = [
     date_added: "2026-10-14",
   },
 ];
-
-const DEFAULT_AI_CONFIG: AIConfig = {
-  provider: "amd",
-  apiKey: "",
-  serverUrl: "http://127.0.0.1:8001/v1",
-  modelName: "amd/gemma-2b-it-rocm",
-  temperature: 0.2,
-  maxTokens: 3000,
-  enabled: true,
-};
 
 const listeners = new Set<() => void>();
 function notify() {
@@ -238,24 +227,5 @@ export function addSubmission(sub: Omit<CommunitySubmission, "id" | "date_added"
   localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
   notify();
   return newSub;
-}
-
-// ── AI Configuration ────────────────────────────────────────────────────────
-export function getAIConfig(): AIConfig {
-  try {
-    const raw = localStorage.getItem(AI_CONFIG_KEY);
-    if (!raw) {
-      localStorage.setItem(AI_CONFIG_KEY, JSON.stringify(DEFAULT_AI_CONFIG));
-      return DEFAULT_AI_CONFIG;
-    }
-    return JSON.parse(raw);
-  } catch {
-    return DEFAULT_AI_CONFIG;
-  }
-}
-
-export function saveAIConfig(cfg: AIConfig) {
-  localStorage.setItem(AI_CONFIG_KEY, JSON.stringify(cfg));
-  notify();
 }
 
