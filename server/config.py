@@ -34,7 +34,7 @@ load_env()
 RADEON_API_KEY = os.environ.get("RADEON_API_KEY", "")
 AMD_BASE_URL = os.environ.get("AMD_BASE_URL", "https://developer.amd.com.cn/radeon/api/v1").rstrip("/")
 # Exact model ID as listed by GET {AMD_BASE_URL}/models.
-AMD_MODEL = os.environ.get("AMD_MODEL", "gemma4 31b")
+AMD_MODEL = os.environ.get("AMD_MODEL", "Gemma-4-31B-IT")
 
 # ── Service URLs ───────────────────────────────────────────────────────────
 RECOMMEND_URL = os.environ.get("RECOMMEND_URL", "http://127.0.0.1:8001").rstrip("/")
