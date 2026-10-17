@@ -1,8 +1,7 @@
-import type { CommunitySubmission, PlayedGame, UserShelfProfile } from "./types";
+import type { PlayedGame, UserShelfProfile } from "./types";
 import { getGame } from "../demo/catalog";
 
 const SHELF_KEY = "bgt_user_shelf";
-const SUBMISSIONS_KEY = "bgt_community_submissions";
 
 const DEFAULT_SHELF: UserShelfProfile = {
   username: "PlayerOne",
@@ -39,41 +38,6 @@ const DEFAULT_SHELF: UserShelfProfile = {
     },
   ],
 };
-
-const DEFAULT_SUBMISSIONS: CommunitySubmission[] = [
-  {
-    id: "sub-1",
-    name: "Dune: Imperium",
-    year_published: 2020,
-    min_players: 1,
-    max_players: 4,
-    mfg_playtime: 90,
-    game_weight: 3.0,
-    categories: "Strategy; Sci-Fi; Political",
-    mechanics: "Worker Placement; Deck Building; Hand Management",
-    description: "Battle for control of Arrakis through political maneuvering, resource harvest, and military conflict.",
-    how_i_won: "Rushed the High Council seat round 2 for +2 Solari per round, then pivoted to Fremen faction influence for the victory point threshold.",
-    winning_tips: "Don't ignore the combat track — victory points won on conflict rounds are the fastest way to 10 points.",
-    submitted_by: "PaulAtreides",
-    date_added: "2026-10-15",
-  },
-  {
-    id: "sub-2",
-    name: "Ark Nova",
-    year_published: 2021,
-    min_players: 1,
-    max_players: 4,
-    mfg_playtime: 120,
-    game_weight: 3.7,
-    categories: "Strategy; Animals; Economic",
-    mechanics: "Hand Management; Set Collection; Tile Placement",
-    description: "Plan and design a modern, scientifically managed zoo with conservation projects worldwide.",
-    how_i_won: "Upgraded the Association action card first to partner with universities and sponsor high-impact conservation projects early.",
-    winning_tips: "Balance Appeal and Conservation points so your markers meet faster and trigger the endgame on your terms.",
-    submitted_by: "EcoBuilder",
-    date_added: "2026-10-14",
-  },
-];
 
 const listeners = new Set<() => void>();
 function notify() {
@@ -201,31 +165,3 @@ export function getShelfAnalytics(): ShelfAnalytics {
     ratingDistribution: ratingDist,
   };
 }
-
-// ── Community Submissions ────────────────────────────────────────────────────
-export function getSubmissions(): CommunitySubmission[] {
-  try {
-    const raw = localStorage.getItem(SUBMISSIONS_KEY);
-    if (!raw) {
-      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(DEFAULT_SUBMISSIONS));
-      return DEFAULT_SUBMISSIONS;
-    }
-    return JSON.parse(raw);
-  } catch {
-    return DEFAULT_SUBMISSIONS;
-  }
-}
-
-export function addSubmission(sub: Omit<CommunitySubmission, "id" | "date_added">): CommunitySubmission {
-  const list = getSubmissions();
-  const newSub: CommunitySubmission = {
-    ...sub,
-    id: `sub-${Date.now()}`,
-    date_added: new Date().toISOString().split("T")[0],
-  };
-  list.unshift(newSub);
-  localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
-  notify();
-  return newSub;
-}
-
