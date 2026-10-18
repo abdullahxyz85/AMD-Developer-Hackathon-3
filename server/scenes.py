@@ -38,6 +38,11 @@ def _wrap(text: str, width: int) -> str:
 class AnimationPlanScene(Scene):
     """Base scene: title banner + caption bar + per-step highlighting."""
 
+    def setup(self) -> None:
+        super().setup()
+        # Templates use dark INK text; Manim's default black hides labels.
+        self.camera.background_color = PAPER
+
     def perform(self, plan: dict) -> None:
         self.stage: Group = Group()
         self.title_banner(plan.get("title", ""))
