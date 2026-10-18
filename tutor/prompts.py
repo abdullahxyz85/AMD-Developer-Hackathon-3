@@ -119,8 +119,13 @@ def validate_lesson(raw, context):
             raise ValueError("Unknown evidence ID")
         for text in [item.text, getattr(item, "key_difference", ""), getattr(item, "explanation", "")]:
             for bracket in re.findall(r"\[([^\]]+)\]", text):
-                if not set(re.findall(r"\bp\d+\b", bracket)) <= set(item.evidence_ids):
-                    raise ValueError("Inline citation missing from evidence_ids")
+                refs = re.findall(r"\bp\d+\b", bracket)
+                if not set(refs) <= context["evidence"].keys():
+                    raise ValueError("Inline citation references unknown evidence")
+                # Repair bookkeeping only: never invent a source or a rule.
+                for ref in refs:
+                    if ref not in item.evidence_ids:
+                        item.evidence_ids.append(ref)
     for item in lesson.comparisons:
         if item.familiar_game not in context["recommendation"]["player_known_games"]:
             raise ValueError("Comparison uses unfamiliar game")
