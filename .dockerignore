@@ -1,0 +1,12 @@
+.git
+.env
+.venv
+aatam/.venv
+frontend/node_modules
+frontend/dist
+logs
+server/media
+RAG/knowledge/index
+__pycache__
+*.pyc
+.pytest_cache

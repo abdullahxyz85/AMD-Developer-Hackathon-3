@@ -80,8 +80,14 @@ def venv_python() -> Path:
     candidates: list[Path] = []
     if os.environ.get("PYTHON_BIN"):
         candidates.append(Path(os.environ["PYTHON_BIN"]))
-    candidates.append(ROOT / ".venv" / "bin" / "python")
-    candidates.insert(1, ROOT / ".venv" / "Scripts" / "python.exe")
+    # Support both POSIX and Windows venv layouts. The aatam environment is
+    # kept as a fallback because older local setups created it there.
+    candidates.extend([
+        ROOT / ".venv" / "bin" / "python",
+        ROOT / ".venv" / "Scripts" / "python.exe",
+        ROOT / "aatam" / ".venv" / "bin" / "python",
+        ROOT / "aatam" / ".venv" / "Scripts" / "python.exe",
+    ])
     pyenv_root = Path(os.environ.get("PYENV_ROOT", "~/.pyenv")).expanduser()
     candidates.append(pyenv_root / "versions" / VENV_NAME / "bin" / "python")
     candidates.append(Path(sys.executable))
