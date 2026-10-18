@@ -25,6 +25,14 @@ class PromptTests(unittest.TestCase):
     def test_valid_output(self):
         self.assertEqual(validate_lesson(json.dumps(self.output), self.context).status, "ok")
 
+    def test_known_inline_reference_is_added_without_changing_claim(self):
+        context = copy.deepcopy(self.context)
+        context["evidence"]["p2"] = copy.deepcopy(context["evidence"]["p1"])
+        self.output["sections"][0]["text"] = "Reach 10 victory points [p2]."
+        lesson = validate_lesson(json.dumps(self.output), context)
+        self.assertEqual(lesson.sections[0].evidence_ids, ["p1", "p2"])
+        self.assertEqual(lesson.sections[0].text, self.output["sections"][0]["text"])
+
     def test_comparison_requires_both_games(self):
         self.output["comparisons"] = [{"text": "Compare resources", "evidence_ids": ["p1"],
             "familiar_game": "Monopoly", "key_difference": "Different resources"}]

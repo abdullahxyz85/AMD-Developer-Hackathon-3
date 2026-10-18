@@ -28,6 +28,22 @@ MIN_STEPS, MAX_STEPS = 2, 8
 MIN_DUR, MAX_DUR = 1.5, 6.0
 MAX_CAPTION = 180
 
+# These templates contain game-specific art, not generic mechanic diagrams.
+GAME_SCENES = {"catan": "dice_production", "ticket to ride": "route_claim",
+               "dominion": "deck_cycle"}
+
+
+def allowed_scene(target: str) -> str:
+    return GAME_SCENES.get(target.strip().casefold(), "step_cards")
+
+
+def constrain_to_game(plan: dict, target: str) -> dict:
+    """Keep text, but replace incompatible game artwork with neutral cards."""
+    if plan["scene_type"] not in ("step_cards", allowed_scene(target)):
+        plan = {**plan, "scene_type": "step_cards",
+                "steps": [{**step, "highlight": []} for step in plan["steps"]]}
+    return plan
+
 SYSTEM_PROMPT = """You are the animation director for a board-game tutor.
 Given a validated lesson and the player's profile, design ONE short Manim
 animation plan that teaches the lesson's key mechanic visually.
@@ -64,6 +80,7 @@ Rules:
 def build_messages(lesson: dict, rec: dict, user_level: str) -> list[dict]:
     payload = {
         "target_game": lesson.get("target_game") or rec.get("target_game"),
+        "allowed_scene_types": ["step_cards", allowed_scene(lesson.get("target_game") or rec.get("target_game") or "")],
         "player_known_games": rec.get("player_known_games", []),
         "user_level": user_level,
         "lesson_title": lesson.get("title"),
@@ -74,7 +91,7 @@ def build_messages(lesson: dict, rec: dict, user_level: str) -> list[dict]:
             for c in lesson.get("comparisons", [])
         ],
     }
-    return [{"role": "system", "content": SYSTEM_PROMPT},
+    return [{"role": "system", "content": SYSTEM_PROMPT + "\nChoose ONLY from allowed_scene_types. Shared dice mechanics do not make Catan art suitable for Monopoly. Use step_cards for unsupported games."},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]
 
 
@@ -123,11 +140,11 @@ def fallback_plan(lesson: dict, rec: dict) -> dict:
     """Deterministic plan from the lesson, used when LLM generation fails."""
     target = lesson.get("target_game") or rec.get("target_game") or "the game"
     mechanics = [m.get("mechanic", "") for m in rec.get("per_mechanic", [])]
-    if any(m in ("dice_rolling", "resource_production") for m in mechanics):
+    if allowed_scene(target) == "dice_production" and any(m in ("dice_rolling", "resource_production") for m in mechanics):
         scene_type, highlights = "dice_production", ["dice", "hex-8", "hex-6", "settlements"]
-    elif any(m in ("route_building", "network_building") for m in mechanics):
+    elif allowed_scene(target) == "route_claim" and any(m in ("route_building", "network_building") for m in mechanics):
         scene_type, highlights = "route_claim", ["hand", "route", "trains", "score"]
-    elif any(m in ("deck_building", "card_drafting", "hand_management") for m in mechanics):
+    elif allowed_scene(target) == "deck_cycle" and any(m in ("deck_building", "card_drafting", "hand_management") for m in mechanics):
         scene_type, highlights = "deck_cycle", ["deck", "hand", "action", "discard"]
     else:
         scene_type, highlights = "step_cards", []
@@ -150,6 +167,8 @@ def generate_plan(lesson: dict, rec: dict, user_level: str) -> tuple[dict, str]:
     from . import llm
     try:
         raw = llm.chat(build_messages(lesson, rec, user_level))
-        return validate_plan(raw), "llm"
+        plan = validate_plan(raw)
+        target = lesson.get("target_game") or rec.get("target_game") or ""
+        return constrain_to_game(plan, target), "llm"
     except Exception:  # noqa: BLE001 — any failure falls back deterministically
         return fallback_plan(lesson, rec), "fallback"

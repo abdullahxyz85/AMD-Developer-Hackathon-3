@@ -65,7 +65,7 @@ def render(plan: dict, out_path: Path, *, timeout: float | None = None) -> Path:
         try:
             proc = subprocess.run(
                 command, cwd=tmp_dir, env=env, timeout=timeout,
-                capture_output=True, text=True,
+                capture_output=True, text=True, encoding="utf-8", errors="replace",
             )
         except subprocess.TimeoutExpired as exc:
             raise RuntimeError(f"Manim render timed out after {timeout:.0f}s") from exc
