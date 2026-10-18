@@ -121,7 +121,7 @@ def validate_lesson(raw, context):
             for bracket in re.findall(r"\[([^\]]+)\]", text):
                 refs = re.findall(r"\bp\d+\b", bracket)
                 if not set(refs) <= context["evidence"].keys():
-                    raise ValueError("Inline citation references unknown evidence")
+                    raise ValueError("Unknown evidence ID")
                 # Repair bookkeeping only: never invent a source or a rule.
                 for ref in refs:
                     if ref not in item.evidence_ids:

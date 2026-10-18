@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { AnimationPlan, SceneType, VisualStatus } from "../api/types";
 import { renderStatus, resolveUrl, startRender } from "../api/client";
 import { Spinner } from "./ui";
+import { GAME_SCENES, KEY_RULES, phaseFor } from "./gameScenes";
 
 // The lesson's animation_plan is treated as untrusted data: only known
 // scene_types map to the trusted templates below; anything else gets
@@ -23,7 +24,15 @@ function validPlan(p: AnimationPlan | null): AnimationPlan | null {
   return { scene_type: SUPPORTED.includes(p.scene_type) ? p.scene_type : "step_cards", title: String(p.title ?? "How it works"), steps };
 }
 
-export function VisualPlayer({ plan: rawPlan }: { plan: AnimationPlan | null }) {
+// Games whose original templates already draw the right board.
+const BUILTIN: Record<string, SceneType> = { Catan: "dice_production", "Ticket to Ride": "route_claim", Dominion: "deck_cycle" };
+
+/**
+ * `game` is the game being learned. When known it decides the drawing, so a
+ * plan's scene_type (chosen by mechanic) can't put Catan's board on Monopoly;
+ * the plan still supplies the step labels and captions.
+ */
+export function VisualPlayer({ plan: rawPlan, game }: { plan: AnimationPlan | null; game?: string }) {
   const plan = validPlan(rawPlan);
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -81,6 +90,9 @@ export function VisualPlayer({ plan: rawPlan }: { plan: AnimationPlan | null }) 
 
   const cur = plan.steps[step];
   const hl = new Set(cur.highlight);
+  const GameScene = game ? GAME_SCENES[game] : undefined;
+  const sceneType = (game && BUILTIN[game]) || plan.scene_type;
+  const rules = game ? KEY_RULES[game] : undefined;
   const video = render?.status === "done" && render.video_url ? resolveUrl(render.video_url) : null;
 
   return (
@@ -107,11 +119,27 @@ export function VisualPlayer({ plan: rawPlan }: { plan: AnimationPlan | null }) 
       ) : (
         <>
           <div className="bg-sunk">
-            {plan.scene_type === "dice_production" && <DiceScene step={step} hl={hl} />}
-            {plan.scene_type === "route_claim" && <RouteScene step={step} hl={hl} />}
-            {plan.scene_type === "deck_cycle" && <DeckScene step={step} hl={hl} />}
-            {plan.scene_type === "step_cards" && <CardsScene label={cur.label} index={step} total={plan.steps.length} />}
+            {GameScene ? (
+              <GameScene phase={phaseFor(step, plan.steps.length)} />
+            ) : (
+              <>
+                {sceneType === "dice_production" && <DiceScene step={step} hl={hl} />}
+                {sceneType === "route_claim" && <RouteScene step={step} hl={hl} />}
+                {sceneType === "deck_cycle" && <DeckScene step={step} hl={hl} />}
+                {sceneType === "step_cards" && <CardsScene label={cur.label} index={step} total={plan.steps.length} />}
+              </>
+            )}
           </div>
+          {rules && (
+            <div className="border-y-2 border-ink bg-surface px-4 py-2.5">
+              <p className="font-display text-xs font-bold uppercase tracking-wider text-red">Key rules · {game}</p>
+              <ul className="mt-1 space-y-0.5 text-[13px] leading-snug">
+                {rules.map((r) => (
+                  <li key={r} className="flex gap-2"><span aria-hidden className="text-red">●</span><span>{r}</span></li>
+                ))}
+              </ul>
+            </div>
+          )}
           <p className="min-h-[4.5rem] px-4 pt-3 text-[15px]" aria-live="polite">
             {cur.caption}
           </p>

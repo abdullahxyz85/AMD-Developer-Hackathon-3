@@ -1,4 +1,4 @@
-# Shared requirements for ALL Python services (single pyenv virtualenv).
+# Shared local-development requirements for ALL Python services.
 #   - recommendation/  (FastAPI)
 #   - RAG/             (FastAPI + ChromaDB + sentence-transformers + BM25)
 #   - server/          (tutor backend + Manim renderer)

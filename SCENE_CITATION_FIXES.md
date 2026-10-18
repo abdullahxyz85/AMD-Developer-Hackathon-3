@@ -1,6 +1,9 @@
 # Game scenes and citation bookkeeping
 
 Based on origin/main at 69bacb7. No frontend files changed.
+Updated with origin/main through d23bf68 before handoff. Upstream already added
+inline citation normalization; merged resolution keeps that behavior and preserves
+inline reference order, plus the regression test for a missing known reference.
 
 Monopoly shares dice_rolling with Catan, but the dice_production template contains
 Catan-specific hexes, settlements and robber art. Fallback selection now requires

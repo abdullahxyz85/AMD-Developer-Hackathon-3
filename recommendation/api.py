@@ -148,6 +148,12 @@ def list_games() -> GamesResponse:
     )
 
 
+@router.get("/health")
+def health() -> dict[str, str]:
+    """Liveness endpoint for container platforms and uptime checks."""
+    return {"status": "ok", "service": "recommendation"}
+
+
 # ── Standalone FastAPI app (for dev / testing this module in isolation) ───────
 
 app = FastAPI(

@@ -50,8 +50,13 @@ class PromptTests(unittest.TestCase):
     def test_inline_citation_in_difference_must_be_declared(self):
         self.output["comparisons"] = [{"text": "Compare", "evidence_ids": ["p1"],
             "familiar_game": "Monopoly", "key_difference": "Difference [p6, p8]"}]
-        with self.assertRaisesRegex(ValueError, "Inline citation"):
+        with self.assertRaisesRegex(ValueError, "Unknown evidence ID"):
             validate_lesson(json.dumps(self.output), self.context)
+
+    def test_valid_inline_citation_is_added_to_evidence_ids(self):
+        self.output["sections"][0]["text"] = "Reach 10 victory points [p1]."
+        lesson = validate_lesson(json.dumps(self.output), self.context)
+        self.assertEqual(lesson.sections[0].evidence_ids, ["p1"])
 
     def test_familiar_evidence_does_not_replace_missing_target(self):
         familiar = {"game_resolved": "Monopoly", "passages": [{

@@ -1,0 +1,22 @@
+FROM python:3.13-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONPATH=/app:/app/RAG \
+    HF_HOME=/opt/huggingface
+
+WORKDIR /app
+COPY RAG/requirements.txt /tmp/rag-requirements.txt
+RUN sed '/^sentence-transformers/d' /tmp/rag-requirements.txt > /tmp/rag-base-requirements.txt \
+    && pip install --no-cache-dir -r /tmp/rag-base-requirements.txt \
+    && pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu "torch>=2.2" \
+    && pip install --no-cache-dir "sentence-transformers>=3.0"
+COPY recommendation ./recommendation
+COPY RAG ./RAG
+
+# Build the immutable retrieval index once while the image is built.
+RUN python RAG/scripts/load_games.py \
+    && python RAG/scripts/ingest.py
+
+EXPOSE 8080
+CMD ["sh", "-c", "exec uvicorn app.main:app --app-dir RAG --host 0.0.0.0 --port ${PORT:-8080}"]

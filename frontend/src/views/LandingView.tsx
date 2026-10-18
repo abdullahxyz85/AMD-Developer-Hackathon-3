@@ -317,7 +317,7 @@ function SeeIt() {
           <p className="text-ink-soft">This one shows how a single dice roll in Catan pays out resources to every player.</p>
         </div>
         <div className="lg:order-1">
-          <VisualPlayer plan={plan} />
+          <VisualPlayer plan={plan} game="Catan" />
         </div>
       </div>
     </Section>
